@@ -9,9 +9,9 @@ pt-BR:
       user:
         one: "Usuário"
         other: "Usuários"
-      url_classification:
-        one: "Classificação de URL"
-        other: "Classificação de URLs"
+      hospital:
+        one: "Hospital"
+        other: "Hospitais"
     attributes:
       user:
         name: "Nome"
@@ -19,9 +19,9 @@ pt-BR:
         email: "Email"
         password: "Senha"
         password_confirmation: "Confirmação Senha"
-      url_classification:
-        url: "URL"
-        classification: "Classificação"
+      hospital:
+        name: "Nome"
+        abbreviation: "Sigla"
   views:
   admin:
     home:

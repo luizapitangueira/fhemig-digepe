@@ -9,6 +9,7 @@ class Ability
         can :access, :rails_admin
         can :read, :dashboard
         can :manage, User
+        can :manage, Hospital
       end
     end
   end
