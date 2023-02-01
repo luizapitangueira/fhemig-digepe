@@ -15,7 +15,7 @@ pt-BR:
     attributes:
       user:
         name: "Nome"
-        admin: "Administrador"
+        profile: "Perfil"
         email: "Email"
         password: "Senha"
         password_confirmation: "Confirmação Senha"
