@@ -1,4 +1,7 @@
 class Employee < ApplicationRecord
+	
+	has_many :jobs
+
 	validates :cpf, :name, presence: true
 
 	rails_admin do
