@@ -14,6 +14,8 @@ class Ability
         can :manage, Career
         can :read, Job
         can :update, Job
+        can :show, Job
+        can :export, Job
       end
     end
   end
