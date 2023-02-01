@@ -15,6 +15,12 @@ pt-BR:
       employee:
         one: "Contratado"
         other: "Contratados"
+      career:
+        one: "Carreira"
+        other: "Carreiras"
+      job:
+        one: "Vaga"
+        other: "Vagas"
     attributes:
       user:
         name: "Nome"
@@ -28,6 +34,13 @@ pt-BR:
       employee:
         cpf: "CPF"
         name: "Nome"
+      career:
+        name: "Nome"
+        abbreviation: "Sigla"
+      job:
+        hospital: "Hospital"
+        employee: "Contratado"
+        career: "Carreira"
   views:
   admin:
     home:

@@ -11,6 +11,8 @@ class Ability
         can :manage, User
         can :manage, Hospital
         can :manage, Employee
+        can :manage, Career
+        can :manage, Job
       end
     end
   end

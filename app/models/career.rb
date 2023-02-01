@@ -1,4 +1,4 @@
-class Hospital < ApplicationRecord
+class Career < ApplicationRecord
 	validates :name, :abbreviation, presence: true
 
 	rails_admin do
