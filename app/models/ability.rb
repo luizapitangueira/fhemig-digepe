@@ -10,6 +10,7 @@ class Ability
         can :read, :dashboard
         can :manage, User
         can :manage, Hospital
+        can :manage, Employee
       end
     end
   end

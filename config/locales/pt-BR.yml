@@ -12,6 +12,9 @@ pt-BR:
       hospital:
         one: "Hospital"
         other: "Hospitais"
+      employee:
+        one: "Contratado"
+        other: "Contratados"
     attributes:
       user:
         name: "Nome"
@@ -22,6 +25,9 @@ pt-BR:
       hospital:
         name: "Nome"
         abbreviation: "Sigla"
+      employee:
+        cpf: "CPF"
+        name: "Nome"
   views:
   admin:
     home:
