@@ -1,12 +1,12 @@
 RailsAdmin.config do |config|
 
-  config.main_app_name = ["Google Analytics", "| DCTA"]
+  config.main_app_name = ["Gestão Contratos", "| FHEMIG"]
   
-  config.navigation_static_links = {
-    'Classificar Páginas de Destino' => 'importations/new' # COLOCAR LINK DESEJADO
-  }
+  # config.navigation_static_links = {
+  #   'Classificar Páginas de Destino' => 'importations/new' # COLOCAR LINK DESEJADO
+  # }
 
-  config.navigation_static_label = "Lins Úteis"
+  # config.navigation_static_label = "Lins Úteis"
 
   ### Popular gems integration
 
