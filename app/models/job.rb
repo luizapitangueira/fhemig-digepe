@@ -1,24 +1,20 @@
 class Job < ApplicationRecord
 
-	belongs_to :hospital
-	belongs_to :employee
 	belongs_to :career
+	validates :active, presence: true
 
 	rails_admin do
 	  show do
-	    field  :hospital
-	    field  :employee
+	    field  :id
 	    field  :career
+	    field  :active
 	  end
 	  list do
-	    field  :hospital
-	    field  :employee
+	    sort_by :name
+
+	    field  :id
 	    field  :career
-	  end
-	  edit do
-	    field  :hospital
-	    field  :employee
-	    field  :career
+	    field  :active
 	  end
 	end
 end

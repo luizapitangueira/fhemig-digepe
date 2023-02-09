@@ -42,9 +42,9 @@ pt-BR:
         quantity: "Quantidade Contratos"
         anual_impact: "Impacto Individual (R$)"
       job:
-        hospital: "Hospital"
-        employee: "Contratado"
+        id: "Número da Vaga"
         career: "Carreira"
+        active: "Vaga Ativa"
   views:
   admin:
     home:
