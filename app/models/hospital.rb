@@ -10,6 +10,8 @@ class Hospital < ApplicationRecord
 	    field  :abbreviation	    
 	  end
 	  list do
+	    sort_by :name
+
 	    field  :name
 	    field  :abbreviation	    
 	  end
