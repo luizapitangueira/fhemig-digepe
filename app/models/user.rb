@@ -5,7 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :validatable
   validates :email, presence: true
   validates :email, uniqueness: true
-  validates :password, :password_confirmation, presence: true
   validates :profile, inclusion: { in: %w(admin),
     message: "%{value} is not a profile" }
 

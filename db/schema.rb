@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2023_02_01_004711) do
   create_table "careers", force: :cascade do |t|
     t.string "name"
     t.string "abbreviation"
+    t.string "level"
+    t.string "step"
+    t.integer "quantity"
+    t.float "anual_impact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

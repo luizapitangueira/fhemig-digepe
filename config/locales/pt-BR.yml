@@ -37,6 +37,10 @@ pt-BR:
       career:
         name: "Nome"
         abbreviation: "Sigla"
+        level: "Nível"
+        step: "Grau"
+        quantity: "Quantidade Contratos"
+        anual_impact: "Impacto Individual (R$)"
       job:
         hospital: "Hospital"
         employee: "Contratado"
