@@ -2,6 +2,7 @@ class Contract < ApplicationRecord
 
 	belongs_to :job
 	belongs_to :employee
+	belongs_to :hospital
 	validates :start_date,
 			  :estimate_finish_date, presence: true
 
@@ -11,6 +12,7 @@ class Contract < ApplicationRecord
 	  show do
 	    field :job
 	  	field :employee
+	  	field :hospital
 	  	field :start_date
 	  	field :estimate_finish_date
 	  	field :finish_date
@@ -18,6 +20,7 @@ class Contract < ApplicationRecord
 	  list do
       	field :job
 	  	field :employee
+	  	field :hospital
 	  	field :start_date
 	  	field :estimate_finish_date
 	  	field :finish_date
@@ -25,6 +28,7 @@ class Contract < ApplicationRecord
 	  edit do
 	  	field :job
 	  	field :employee
+	  	field :hospital
 	  	field :start_date
 	  	field :estimate_finish_date
 	  	field :finish_date	    

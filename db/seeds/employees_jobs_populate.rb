@@ -11,6 +11,7 @@ class EmployeesJobsPopulate
           if row[8] == career.abbreviation && row[10] == career.level && row[11] ==  career.step
             if career.quantity <= count
               job = Job.create(career: career, active: true)
+              hospital = Hospital.where(abbreviation: row[6]).first
               employee = Employee.find_or_create_by(
                 cpf: row[3],
                 masp: row[0],
@@ -21,6 +22,7 @@ class EmployeesJobsPopulate
               Contract.create(
                 job: job,
                 employee: employee,
+                hospital: hospital,
                 start_date: row[13],
                 estimate_finish_date: row[14],
                 )

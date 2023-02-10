@@ -29,12 +29,14 @@ ActiveRecord::Schema.define(version: 2023_02_10_002622) do
   create_table "contracts", force: :cascade do |t|
     t.bigint "job_id", null: false
     t.bigint "employee_id", null: false
+    t.bigint "hospital_id", null: false
     t.date "start_date"
     t.date "estimate_finish_date"
     t.date "finish_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["employee_id"], name: "index_contracts_on_employee_id"
+    t.index ["hospital_id"], name: "index_contracts_on_hospital_id"
     t.index ["job_id"], name: "index_contracts_on_job_id"
   end
 
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 2023_02_10_002622) do
   end
 
   add_foreign_key "contracts", "employees"
+  add_foreign_key "contracts", "hospitals"
   add_foreign_key "contracts", "jobs"
   add_foreign_key "employees", "careers"
   add_foreign_key "jobs", "careers"

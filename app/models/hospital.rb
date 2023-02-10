@@ -1,6 +1,7 @@
 class Hospital < ApplicationRecord
 	
 	has_many :jobs
+	has_many :contracts
 
 	validates :name, :abbreviation, presence: true
 
