@@ -10,13 +10,22 @@ class EmployeesJobsPopulate
         CSV.foreach(seed_file_path, encoding:'utf-8', col_sep: ';', headers: :first_row) do |row|
           if row[8] == career.abbreviation && row[10] == career.level && row[11] ==  career.step
             if career.quantity <= count
-              # job = Job.create(career: career, active: true)
-              # Create employee
-              # vinculate employee to job
-            
-
-            else
-              # job = Job.create(career: career, active: true)
+              job = Job.create(career: career, active: true)
+              employee = Employee.find_or_create_by(
+                cpf: row[3],
+                masp: row[0],
+                admission: row[1], 
+                name: row[2],
+                career: career, 
+                )
+              Contract.create(
+                job: job,
+                employee: employee,
+                start_date: row[13],
+                estimate_finish_date: row[14],
+                )
+              else
+                job = Job.create(career: career, active: true)
             end
             count += 1
           end
@@ -25,10 +34,3 @@ class EmployeesJobsPopulate
     end
   end
 end
-
-
-# seed_file_path = 'db/seeds/csv/hospitals.csv'
-#       # Creating hospitals if it not exist
-#       CSV.foreach(seed_file_path, encoding:'utf-8', col_sep: ';', headers: :first_row) do |row|
-#         Hospital.find_or_create_by(name: row[0], 
-#                                  abbreviation: row[1])
