@@ -12,6 +12,7 @@ class Ability
         can :manage, Hospital
         can :manage, Employee
         can :manage, Career
+        can :manage, Contract
         can :read, Job
         can :update, Job
         can :show, Job

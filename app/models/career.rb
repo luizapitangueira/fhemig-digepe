@@ -1,7 +1,7 @@
 class Career < ApplicationRecord
 	
 	has_many :jobs
-
+	has_many :employees
 	validates :name, 
 			  :abbreviation, 
 			  :level, 

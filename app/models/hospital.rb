@@ -5,6 +5,8 @@ class Hospital < ApplicationRecord
 	validates :name, :abbreviation, presence: true
 
 	rails_admin do
+	  weight -3
+
 	  show do
 	    field  :name
 	    field  :abbreviation	    

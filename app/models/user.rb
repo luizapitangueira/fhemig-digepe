@@ -9,6 +9,8 @@ class User < ApplicationRecord
     message: "%{value} is not a profile" }
 
   rails_admin do
+    weight -4
+
     show do
       field  :name
       field  :profile

@@ -21,6 +21,9 @@ pt-BR:
       job:
         one: "Vaga"
         other: "Vagas"
+      contract:
+        one: "Contrato"
+        other: "Contratos"
     attributes:
       user:
         name: "Nome"
@@ -33,7 +36,10 @@ pt-BR:
         abbreviation: "Sigla"
       employee:
         cpf: "CPF"
+        masp: "MASP"
+        admission: "Número de Admissão"
         name: "Nome"
+        career: "Carreira"
       career:
         name: "Nome"
         abbreviation: "Sigla"
@@ -45,6 +51,12 @@ pt-BR:
         id: "Número da Vaga"
         career: "Carreira"
         active: "Vaga Ativa"
+      contract:
+        job: "Vaga"
+        employee: "Contratado"
+        start_date: "Data Início"
+        estimate_finish_date: "Data Fim Prevista"
+        finish_date: "Data Fim Real"
   views:
   admin:
     home:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_01_004711) do
+ActiveRecord::Schema.define(version: 2023_02_10_002622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,28 @@ ActiveRecord::Schema.define(version: 2023_02_01_004711) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "employees", force: :cascade do |t|
-    t.string "cpf"
-    t.string "name"
+  create_table "contracts", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.bigint "employee_id", null: false
+    t.date "start_date"
+    t.date "estimate_finish_date"
+    t.date "finish_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_contracts_on_employee_id"
+    t.index ["job_id"], name: "index_contracts_on_job_id"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "cpf"
+    t.string "masp"
+    t.integer "admission"
+    t.string "name"
+    t.bigint "career_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["career_id"], name: "index_employees_on_career_id"
+    t.index ["cpf", "masp", "admission"], name: "index_employees_on_cpf_and_masp_and_admission", unique: true
   end
 
   create_table "hospitals", force: :cascade do |t|
@@ -41,14 +58,11 @@ ActiveRecord::Schema.define(version: 2023_02_01_004711) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.bigint "hospital_id", null: false
-    t.bigint "employee_id", null: false
     t.bigint "career_id", null: false
+    t.boolean "active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["career_id"], name: "index_jobs_on_career_id"
-    t.index ["employee_id"], name: "index_jobs_on_employee_id"
-    t.index ["hospital_id"], name: "index_jobs_on_hospital_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,7 +79,8 @@ ActiveRecord::Schema.define(version: 2023_02_01_004711) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contracts", "employees"
+  add_foreign_key "contracts", "jobs"
+  add_foreign_key "employees", "careers"
   add_foreign_key "jobs", "careers"
-  add_foreign_key "jobs", "employees"
-  add_foreign_key "jobs", "hospitals"
 end

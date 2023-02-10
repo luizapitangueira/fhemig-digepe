@@ -1,6 +1,7 @@
 class Job < ApplicationRecord
 
 	belongs_to :career
+	has_many :contracts
 	validates :active, presence: true
 
 	rails_admin do
@@ -10,7 +11,7 @@ class Job < ApplicationRecord
 	    field  :active
 	  end
 	  list do
-	    sort_by :name
+	    sort_by :id
 
 	    field  :id
 	    field  :career
