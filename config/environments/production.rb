@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.configure doRails.application.configure do
-
+Rails.application.configure do
+ 
   # Tradução
   config.i18n.enforce_available_locales = false
   config.i18n.available_locales = ["pt-BR"]
