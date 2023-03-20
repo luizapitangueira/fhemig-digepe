@@ -1,4 +1,4 @@
-# Referência sobre a criação deste app
+# Referência sobre a criação deste app 
 
 Referências sobre a criação deste app, incluindo versões Ruby e Rails estão disponíveis no arquivo [especificacoes_ruby_on_rails.md](/especificacoes_ruby_on_rails.md)
 
