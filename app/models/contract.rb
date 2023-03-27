@@ -13,13 +13,13 @@ class Contract < ApplicationRecord
 	    field :job
 	  	field :employee
 	  	field :hospital
-	  	configure :start_date, :date do
+	  	field :start_date, :date do
 	  	  strftime_format '%d/%m/%Y'
 	  	end
-	  	configure :estimate_finish_date, :date do
+	  	field :estimate_finish_date, :date do
 	  	  strftime_format '%d/%m/%Y'
 	  	end
-	  	configure :finish_date, :date do
+	  	field :finish_date, :date do
 	  	  strftime_format '%d/%m/%Y'
 	  	end
 	  end
@@ -27,13 +27,13 @@ class Contract < ApplicationRecord
       	field :job
 	  	field :employee
 	  	field :hospital
-	  	configure :start_date, :date do
+	  	field :start_date, :date do
 	  	  strftime_format '%d/%m/%Y'
 	  	end
-	  	configure :estimate_finish_date, :date do
+	  	field :estimate_finish_date, :date do
 	  	  strftime_format '%d/%m/%Y'
 	  	end
-	  	configure :finish_date, :date do
+	  	field :finish_date, :date do
 	  	  strftime_format '%d/%m/%Y'
 	  	end
 	  end
@@ -41,14 +41,20 @@ class Contract < ApplicationRecord
 	  	field :job
 	  	field :employee
 	  	field :hospital
-	  	configure :start_date, :date do
-	  	  strftime_format '%d/%m/%Y'
+	  	field :start_date, :date do
+	  		read_only do
+	  	  		strftime_format '%d/%m/%Y'
+	  	  	end
 	  	end
-	  	configure :estimate_finish_date, :date do
-	  	  strftime_format '%d/%m/%Y'
+	  	field :estimate_finish_date, :date do
+	  		read_only do
+	  	  		strftime_format '%d/%m/%Y'
+	  	  	end
 	  	end
-	  	configure :finish_date, :date do
-	  	  strftime_format '%d/%m/%Y'
+	  	field :finish_date, :date do
+	  		read_only do
+	  	  		strftime_format '%d/%m/%Y'
+	  	  	end
 	  	end	    
 	  end
 	end
