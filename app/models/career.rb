@@ -7,7 +7,8 @@ class Career < ApplicationRecord
 			  :level, 
 			  :step, 
 			  :quantity,
-			  :anual_impact,  presence: true
+			  :category,
+			  :workload,  presence: true
 
 	rails_admin do
 	  show do
@@ -16,7 +17,8 @@ class Career < ApplicationRecord
 	    field  :level
 	    field  :step
 	    field  :quantity
-	    field  :anual_impact	    
+	    field  :category
+	    field  :workload	    
 	  end
 	  list do
 	    sort_by :name, :level, :step
@@ -26,14 +28,16 @@ class Career < ApplicationRecord
 	    field  :level
 	    field  :step
 	    field  :quantity
-	    field  :anual_impact	    
+	    field  :category
+	    field  :workload	    
 	  end
 	  edit do
 	    field  :name
 	    field  :abbreviation
 	    field  :level
 	    field  :step
-	    field  :anual_impact
+	    field  :category
+	    field  :workload
 	  end
 	end
 end

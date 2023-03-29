@@ -46,11 +46,20 @@ pt-BR:
         level: "Nível"
         step: "Grau"
         quantity: "Quantidade Contratos"
-        anual_impact: "Impacto Individual (R$)"
+        category: "Categoria Profissional"
+        workload: "Carga Horária"
       job:
         id: "Número da Vaga"
         career: "Carreira"
-        active: "Vaga Ativa"
+        status: "Status da Vaga"
+        start_date: "Data de Início da Vaga"
+        finish_date: "Data de Fim da Vaga"
+        if_switch: "Essa vaga foi transformada?"
+        why_switch: "Justificatica da transformação"
+        notice: "Edital de publicação da Vaga"
+        notice_publish_date: "Data de publicação do edital"
+        workload: "Carga Horária"
+        creation_type: "Origem"
       contract:
         job: "Vaga"
         employee: "Contratado"
@@ -101,7 +110,7 @@ pt-BR:
       message: "Mensagem"
     actions:
       dashboard:
-        title: "Bem vindo ao painel de lancamentos Portal da Transparência - Google Analytics"
+        title: "Bem vindo ao painel de Gestão de Contratos - FHEMIG"
         menu: "Dashboard"
         breadcrumb: "Dashboard"
       index:

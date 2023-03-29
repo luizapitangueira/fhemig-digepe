@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_27_191825) do
+ActiveRecord::Schema.define(version: 2023_03_29_135042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 2023_03_27_191825) do
     t.string "level"
     t.string "step"
     t.integer "quantity"
-    t.float "anual_impact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
+    t.integer "workload"
   end
 
   create_table "contracts", force: :cascade do |t|
@@ -64,6 +65,14 @@ ActiveRecord::Schema.define(version: 2023_03_27_191825) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 1
+    t.date "start_date"
+    t.date "finish_date"
+    t.boolean "if_switch", default: false
+    t.string "why_switch"
+    t.string "notice"
+    t.date "notice_publish_date"
+    t.integer "workload"
+    t.integer "creation_type", default: 1
     t.index ["career_id"], name: "index_jobs_on_career_id"
   end
 
