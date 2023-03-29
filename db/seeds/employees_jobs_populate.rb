@@ -10,7 +10,7 @@ class EmployeesJobsPopulate
         CSV.foreach(seed_file_path, encoding:'utf-8', col_sep: ';', headers: :first_row) do |row|
           if row[8] == career.abbreviation && row[10] == career.level && row[11] ==  career.step
             if career.quantity <= count
-              job = Job.create(career: career, active: true)
+              job = Job.create(career: career, status: 1)
               hospital = Hospital.where(abbreviation: row[6]).first
               employee = Employee.find_or_create_by(
                 cpf: row[3],
@@ -27,7 +27,7 @@ class EmployeesJobsPopulate
                 estimate_finish_date: row[14],
                 )
               else
-                job = Job.create(career: career, active: true)
+                job = Job.create(career: career, status: 1)
             end
             count += 1
           end

@@ -51,7 +51,6 @@ pt-BR:
       job:
         id: "Número da Vaga"
         career: "Carreira"
-        status: "Status da Vaga"
         start_date: "Data de Início da Vaga"
         finish_date: "Data de Fim da Vaga"
         if_switch: "Essa vaga foi transformada?"
@@ -60,6 +59,12 @@ pt-BR:
         notice_publish_date: "Data de publicação do edital"
         workload: "Carga Horária"
         creation_type: "Origem"
+        status: "Status da Vaga"
+        statuses:
+          busy: "Ocupada"
+          free: "Livre"
+          publish: "Publicada"
+          switch: "Transformada"
       contract:
         job: "Vaga"
         employee: "Contratado"
