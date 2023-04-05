@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_29_135042) do
+ActiveRecord::Schema.define(version: 2023_04_05_181001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,7 +73,9 @@ ActiveRecord::Schema.define(version: 2023_03_29_135042) do
     t.date "notice_publish_date"
     t.integer "workload"
     t.integer "creation_type", default: 1
+    t.bigint "job_id"
     t.index ["career_id"], name: "index_jobs_on_career_id"
+    t.index ["job_id"], name: "index_jobs_on_job_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,4 +97,5 @@ ActiveRecord::Schema.define(version: 2023_03_29_135042) do
   add_foreign_key "contracts", "jobs"
   add_foreign_key "employees", "careers"
   add_foreign_key "jobs", "careers"
+  add_foreign_key "jobs", "jobs"
 end

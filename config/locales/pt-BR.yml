@@ -6,40 +6,25 @@ pt-BR:
         other: "%{count} dias"
   activerecord:
     models:
-      user:
-        one: "Usuário"
-        other: "Usuários"
-      hospital:
-        one: "Hospital"
-        other: "Hospitais"
-      employee:
-        one: "Contratado"
-        other: "Contratados"
       career:
         one: "Carreira"
         other: "Carreiras"
-      job:
-        one: "Vaga"
-        other: "Vagas"
       contract:
         one: "Contrato"
         other: "Contratos"
-    attributes:
-      user:
-        name: "Nome"
-        profile: "Perfil"
-        email: "Email"
-        password: "Senha"
-        password_confirmation: "Confirmação Senha"
-      hospital:
-        name: "Nome"
-        abbreviation: "Sigla"
       employee:
-        cpf: "CPF"
-        masp: "MASP"
-        admission: "Número de Admissão"
-        name: "Nome"
-        career: "Carreira"
+        one: "Pessoa"
+        other: "Pessoas"
+      hospital:
+        one: "Hospital"
+        other: "Hospitais"
+      job:
+        one: "Vaga"
+        other: "Vagas"
+      user:
+        one: "Usuário do Sistema"
+        other: "Usuários do Sistema"
+    attributes:
       career:
         name: "Nome"
         abbreviation: "Sigla"
@@ -48,6 +33,22 @@ pt-BR:
         quantity: "Quantidade Contratos"
         category: "Categoria Profissional"
         workload: "Carga Horária"
+      contract:
+        job: "Vaga"
+        employee: "Contratado"
+        hospital: "Hospital"
+        start_date: "Data Início"
+        estimate_finish_date: "Data Fim Prevista"
+        finish_date: "Data Fim Real"
+      employee:
+        cpf: "CPF"
+        masp: "MASP"
+        admission: "Número de Admissão"
+        name: "Nome"
+        career: "Carreira"
+      hospital:
+        name: "Nome"
+        abbreviation: "Sigla"
       job:
         id: "Número da Vaga"
         career: "Carreira"
@@ -58,20 +59,23 @@ pt-BR:
         notice: "Edital de publicação da Vaga"
         notice_publish_date: "Data de publicação do edital"
         workload: "Carga Horária"
-        creation_type: "Origem"
+        creation_type: "Tipo de Origem"
+        creation_types:
+          notice: "Publicada"
+          switched: "Transformada"
         status: "Status da Vaga"
         statuses:
           busy: "Ocupada"
           free: "Livre"
           publish: "Publicada"
           switch: "Transformada"
-      contract:
-        job: "Vaga"
-        employee: "Contratado"
-        hospital: "Hospital"
-        start_date: "Data Início"
-        estimate_finish_date: "Data Fim Prevista"
-        finish_date: "Data Fim Real"
+        job: "Vaga de Origem"
+      user:
+        name: "Nome"
+        profile: "Perfil"
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirmação Senha"
   views:
   admin:
     home:

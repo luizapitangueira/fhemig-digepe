@@ -53,7 +53,7 @@ class Contract < ApplicationRecord
 	  	end
 	  	field :finish_date, :date do
   	  		strftime_format '%d/%m/%Y'
-  	  		read_only true
+  	  		read_only false
 	  	end	    
 	  end
 
