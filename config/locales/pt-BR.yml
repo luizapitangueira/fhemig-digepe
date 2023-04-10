@@ -79,7 +79,7 @@ pt-BR:
   views:
   admin:
     home:
-      name: Home
+      name: Dashboard
     pagination:
       previous: "« Anterior"
       next: "Próximo »"
@@ -120,8 +120,8 @@ pt-BR:
     actions:
       dashboard:
         title: "Bem vindo ao painel de Gestão de Contratos - FHEMIG"
-        menu: "Dashboard"
-        breadcrumb: "Dashboard"
+        menu: "Início"
+        breadcrumb: "Início"
       index:
         title: "Lista de %{model_label_plural}"
         menu: "Lista"
