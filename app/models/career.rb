@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Career < ApplicationRecord
 	
 	has_many :jobs

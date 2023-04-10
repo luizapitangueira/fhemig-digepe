@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JobService
 	class << self
 		def count_jobs

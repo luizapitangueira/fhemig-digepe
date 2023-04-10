@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Job < ApplicationRecord
 
 	belongs_to :career
@@ -55,20 +57,16 @@ class Job < ApplicationRecord
 	  edit do
 		field  :career
 		field  :status, :enum do 
-			enum do 
-				array = Job.statuses.map do |key,value|
-					[I18n.t("activerecord.attributes.job.statuses.#{key}"),value]
-				end
-				array.to_h
+			array = Job.statuses.map do |key,value|
+				[I18n.t("activerecord.attributes.job.statuses.#{key}"),value]
 			end
+			array.to_h
 		end
 		field  :creation_type, :enum do 
-			enum do 
-				array = Job.creation_types.map do |key,value|
-					[I18n.t("activerecord.attributes.job.creation_types.#{key}"),value]
-				end
-				array.to_h
+			array = Job.creation_types.map do |key,value|
+				[I18n.t("activerecord.attributes.job.creation_types.#{key}"),value]
 			end
+			array.to_h
 		end
 		field  :job
 		field  :start_date

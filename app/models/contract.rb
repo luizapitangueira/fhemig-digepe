@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Contract < ApplicationRecord
 
 	belongs_to :job
@@ -19,8 +21,10 @@ class Contract < ApplicationRecord
 	  	field :estimate_finish_date, :date do
 	  	  strftime_format '%d/%m/%Y'
 	  	end
-	  	field :finish_date, :date do
-	  	  strftime_format '%d/%m/%Y'
+	  	field :finish_date do
+	  	  formatted_value do
+	  	  	bindings[:object].display_finish_date
+	  	  end
 	  	end
 	  end
 
@@ -75,5 +79,9 @@ class Contract < ApplicationRecord
 	  	end	    
 	  end
 
+	end
+
+	def display_finish_date
+		finish_date.present? ? finish_date.strftime('%d/%m/%Y') : '-'
 	end
 end
