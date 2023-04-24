@@ -36,6 +36,10 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
+  config.model 'Hospital' do
+    controller 'TracksController'
+  end
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -45,7 +49,7 @@ RailsAdmin.config do |config|
     show
     edit
     delete do
-      except [Contract, Job]
+      except [Contract]
     end
     show_in_app
 
