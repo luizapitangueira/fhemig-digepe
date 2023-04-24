@@ -6,7 +6,8 @@ class HomeController < ApplicationController
   def index
     @count_jobs = JobService.count_jobs
     @count_contracts_due_in_90_days = ContractService.count_contracts_due_in_90_days
-    track_action("dashboard")
+    @table_careers_categorys = JobService.table_careers_categorys
+   # track_action("dashboard")
   end
 
   def track_action(page)

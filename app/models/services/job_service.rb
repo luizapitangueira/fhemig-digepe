@@ -9,5 +9,14 @@ class JobService
 				busy: Job.where(status: :busy).count
 			}
 		end
+
+		def table_careers_categorys
+			result = Job.joins(:career)
+            .group('(careers.name, careers.category)')
+            .count(:id)
+            .map { |k, count| { 'category' => k.split(',')[0].gsub('\"',''), 'name' => k.split(',')[1], 'Quant. vagas' => count} }
+            result
+		end
+
 	end
 end
