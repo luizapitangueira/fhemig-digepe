@@ -23,12 +23,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'chartkick'
 gem 'ahoy_matey'
 
 # Use gem rollincode
 gem 'rails_admin_rollincode', '~> 1.0'
-gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
+gem 'rails_admin', '~> 3.1', git: 'https://github.com/sferik/rails_admin.git'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -39,6 +38,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Use Boostrap
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'jquery-rails'
+
+gem 'groupdate'
+gem 'apexcharts'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -150,10 +150,10 @@
 			    	<p>Quantidade de Contratos por Data de Início</p>
 			  	</div>
 			 	<div class="card-body">
-			    	<%= line_chart retrieve_contract_group_start_date %>
+			    	<%= area_chart(counting_level_careers, {adapter: 'google'})%>
 			  	</div>
 			  	<div class="card-body">
-			  		<%= pie_chart @table_careers_categorys %>
+			  		
 			  	</div>
 			</div>
 
