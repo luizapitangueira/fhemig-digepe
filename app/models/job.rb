@@ -8,10 +8,11 @@ class Job < ApplicationRecord
 
 	validates :status, :if_switch, :creation_type, presence: true
 
-	enum status: %i[free busy publish switch]
-	enum creation_type: %i[switched notice]
+	enum status: %i[free busy publish switch reserved]
+	enum creation_type: %i[switched authorized effec_shutdown]
 
 	rails_admin do
+
 	  show do
 	    field  :id
 	    field  :career
@@ -57,16 +58,20 @@ class Job < ApplicationRecord
 	  edit do
 		field  :career
 		field  :status, :enum do 
-			array = Job.statuses.map do |key,value|
-				[I18n.t("activerecord.attributes.job.statuses.#{key}"),value]
+			enum do 
+				array = Job.statuses.map do |key,value|
+					[I18n.t("activerecord.attributes.job.statuses.#{key}"),value]
+				end
+				array.to_h
 			end
-			array.to_h
 		end
 		field  :creation_type, :enum do 
-			array = Job.creation_types.map do |key,value|
-				[I18n.t("activerecord.attributes.job.creation_types.#{key}"),value]
+			enum do 
+				array = Job.creation_types.map do |key,value|
+					[I18n.t("activerecord.attributes.job.creation_types.#{key}"),value]
+				end
+				array.to_h
 			end
-			array.to_h
 		end
 		field  :job
 		field  :start_date
@@ -109,4 +114,5 @@ class Job < ApplicationRecord
 	  end
 
 	end
+	
 end

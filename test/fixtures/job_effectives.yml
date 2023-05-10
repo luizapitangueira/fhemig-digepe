@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  status: 1
+  start_date: 2023-05-10
+  finish_date: 2023-05-10
+  career: one
+
+two:
+  id: 1
+  status: 1
+  start_date: 2023-05-10
+  finish_date: 2023-05-10
+  career: two

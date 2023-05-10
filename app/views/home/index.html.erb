@@ -153,7 +153,14 @@
 			    	<%= area_chart(counting_level_careers, {adapter: 'google'})%>
 			  	</div>
 			  	<div class="card-body">
-			  		
+			  		<div class="card-body">
+					<%= pie_chart([
+					  {name: "Series A", data: 25},
+					  {name: "Series B", data: 100},
+					  {name: "Series C", data: 200},
+					  {name: "Series D", data: 125}
+					], legend: "left") %>
+				</div>
 			  	</div>
 			</div>
 

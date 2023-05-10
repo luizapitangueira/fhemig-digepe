@@ -14,9 +14,12 @@ class Ability
       can :manage, Employee
       can :manage, Career
       can :manage, Contract
+      can :manage, ContractEffective
       can :manage, Job
+      can :manage, JobEffective
+      can :manage, Mark
       can :read, Ahoy::Event
-      can :read, Ahoy::Visit
+      # can :read, Ahoy::Visit
       # can :read, Job
       # can :update, Job
       # can :show, Job

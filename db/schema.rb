@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_19_182916) do
+ActiveRecord::Schema.define(version: 2023_05_10_173236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,19 @@ ActiveRecord::Schema.define(version: 2023_04_19_182916) do
     t.integer "workload"
   end
 
+  create_table "contract_effectives", force: :cascade do |t|
+    t.bigint "job_effective_id", null: false
+    t.bigint "employee_id", null: false
+    t.bigint "hospital_id", null: false
+    t.string "setor"
+    t.boolean "if_office"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_contract_effectives_on_employee_id"
+    t.index ["hospital_id"], name: "index_contract_effectives_on_hospital_id"
+    t.index ["job_effective_id"], name: "index_contract_effectives_on_job_effective_id"
+  end
+
   create_table "contracts", force: :cascade do |t|
     t.bigint "job_id", null: false
     t.bigint "employee_id", null: false
@@ -91,6 +104,7 @@ ActiveRecord::Schema.define(version: 2023_04_19_182916) do
     t.bigint "career_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "type_relationship", default: 1
     t.index ["career_id"], name: "index_employees_on_career_id"
     t.index ["cpf", "masp", "admission"], name: "index_employees_on_cpf_and_masp_and_admission", unique: true
   end
@@ -100,6 +114,16 @@ ActiveRecord::Schema.define(version: 2023_04_19_182916) do
     t.string "abbreviation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "job_effectives", force: :cascade do |t|
+    t.integer "status"
+    t.date "start_date"
+    t.date "finish_date"
+    t.bigint "career_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["career_id"], name: "index_job_effectives_on_career_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -120,6 +144,14 @@ ActiveRecord::Schema.define(version: 2023_04_19_182916) do
     t.index ["job_id"], name: "index_jobs_on_job_id"
   end
 
+  create_table "marks", force: :cascade do |t|
+    t.integer "n_jobs"
+    t.integer "n_workload"
+    t.date "publication_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "profile"
@@ -134,10 +166,14 @@ ActiveRecord::Schema.define(version: 2023_04_19_182916) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contract_effectives", "employees"
+  add_foreign_key "contract_effectives", "hospitals"
+  add_foreign_key "contract_effectives", "job_effectives"
   add_foreign_key "contracts", "employees"
   add_foreign_key "contracts", "hospitals"
   add_foreign_key "contracts", "jobs"
   add_foreign_key "employees", "careers"
+  add_foreign_key "job_effectives", "careers"
   add_foreign_key "jobs", "careers"
   add_foreign_key "jobs", "jobs"
 end

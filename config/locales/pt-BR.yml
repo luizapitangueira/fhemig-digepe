@@ -64,8 +64,11 @@ pt-BR:
         one: "Carreira"
         other: "Carreiras"
       contract:
-        one: "Contrato"
-        other: "Contratos"
+        one: "Contrato Administrativo"
+        other: "Contratos Administrativos" 
+      contract_effective:
+        one: "Vínculo Efetivos"
+        other: "Vínculos Efetivos"
       employee:
         one: "Pessoa"
         other: "Pessoas"
@@ -73,8 +76,14 @@ pt-BR:
         one: "Hospital"
         other: "Hospitais"
       job:
-        one: "Vaga"
-        other: "Vagas"
+        one: "Vaga de Contrato Administrativo"
+        other: "Vagas de Contrato Administrativo"
+      job_effective:
+        one: "Vaga de Efetivo"
+        other: "Vagas de Efetivos"
+      mark:
+        one: "Marco COFIN"
+        other: "Marcos COFIN"
       user:
         one: "Usuário do Sistema"
         other: "Usuários do Sistema"
@@ -94,12 +103,23 @@ pt-BR:
         start_date: "Data Início"
         estimate_finish_date: "Data Fim Prevista"
         finish_date: "Data Fim Real"
+      contract_effective:
+        jobeffective: "Vaga"
+        employee: "Efetivo"
+        hospital: "Hospital"
+        setor: "Setor"
+        if_office: "Ocupa cargo comissionado?"
       employee:
         cpf: "CPF"
         masp: "MASP"
         admission: "Número de Admissão"
         name: "Nome"
         career: "Carreira"
+        type_relationship: "Tipo de Vínculo"
+        type_relationships: 
+          contract: "Contrato Administrativo"
+          effective: "Cargo Efetivo"
+          other: "Outro"
       hospital:
         name: "Nome"
         abbreviation: "Sigla"
@@ -114,16 +134,32 @@ pt-BR:
         notice_publish_date: "Data de publicação do edital"
         workload: "Carga Horária"
         creation_type: "Tipo de Origem"
-        creation_types:
-          notice: "Publicada"
+        creation_types:  
+          authorized: "Autorizada"
           switched: "Transformada"
+          effec_shutdown: "Desligamento de Vaga de Efetivo"
         status: "Status da Vaga"
         statuses:
           busy: "Ocupada"
           free: "Livre"
           publish: "Publicada"
           switch: "Transformada"
+          reserved: "Reservada"
         job: "Vaga de Origem"
+      job_effective:
+        id: "Número da Vaga"
+        career: "Carreira"
+        start_date: "Data de Início da Vaga"
+        finish_date: "Data de Fim da Vaga"
+        status: "Status da Vaga"
+        statuses:
+          busy: "Ocupada"
+          switch: "Transformada"
+          shutdown: "Desligada"
+      mark:
+        publication_date: "Data de Publicação"
+        n_jobs: "Quantidade Total de Vagas"
+        n_workload: "Carga Horária Total"
       user:
         name: "Nome"
         profile: "Perfil"

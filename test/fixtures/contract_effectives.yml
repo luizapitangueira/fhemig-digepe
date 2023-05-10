@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jobeffective: one
+  employee: one
+  hospital: one
+  setor: MyString
+  if_office: false
+
+two:
+  jobeffective: two
+  employee: two
+  hospital: two
+  setor: MyString
+  if_office: false
