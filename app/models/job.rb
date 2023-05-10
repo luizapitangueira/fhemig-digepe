@@ -7,6 +7,7 @@ class Job < ApplicationRecord
 	has_one :job
 
 	validates :status, :if_switch, :creation_type, presence: true
+	validates :authorization, length: { is: 8 }, on: :update
 
 	enum status: %i[free busy publish switch reserved]
 	enum creation_type: %i[switched authorized effec_shutdown]
@@ -82,6 +83,7 @@ class Job < ApplicationRecord
 	    field  :notice_publish_date
 	    field  :workload
 	    field  :contracts
+	    field  :authorization
 	  end
 
 	  create do
@@ -111,8 +113,9 @@ class Job < ApplicationRecord
 	    field  :notice_publish_date
 	    field  :workload
 	    field  :contracts
+	    field  :authorization, :hidden
 	  end
 
 	end
-	
+
 end

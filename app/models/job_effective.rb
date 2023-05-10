@@ -1,6 +1,7 @@
 class JobEffective < ApplicationRecord
 
   belongs_to :career
+  has_many :contract_effectives
 
   validates :status, presence: true
 

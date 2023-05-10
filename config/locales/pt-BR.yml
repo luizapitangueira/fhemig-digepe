@@ -59,7 +59,18 @@ pt-BR:
         one: "1 dias"
         other: "%{count} dias"
   activerecord:
+    errors:
+      models:
+        job:
+          attributes:
+            authorization:
+              wrong_length: "Autorização precisa ter 6 dígitos!" 
+            if_switch:
+              blank: "Você precisa preencher se a vaga foi transformada!"
     models:
+      ahoy:
+        one: "Histórico"
+        other: "Histórico"
       career:
         one: "Carreira"
         other: "Carreiras"
@@ -88,6 +99,8 @@ pt-BR:
         one: "Usuário do Sistema"
         other: "Usuários do Sistema"
     attributes:
+      ahoy:
+        event: "Acessos"
       career:
         name: "Nome"
         abbreviation: "Sigla"
@@ -104,7 +117,7 @@ pt-BR:
         estimate_finish_date: "Data Fim Prevista"
         finish_date: "Data Fim Real"
       contract_effective:
-        jobeffective: "Vaga"
+        job_effective: "Vaga"
         employee: "Efetivo"
         hospital: "Hospital"
         setor: "Setor"
@@ -124,6 +137,7 @@ pt-BR:
         name: "Nome"
         abbreviation: "Sigla"
       job:
+        authorization: "Autorização"
         id: "Número da Vaga"
         career: "Carreira"
         start_date: "Data de Início da Vaga"

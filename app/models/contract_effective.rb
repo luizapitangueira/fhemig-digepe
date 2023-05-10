@@ -1,6 +1,6 @@
 class ContractEffective < ApplicationRecord
 
-  belongs_to :jobeffective
+  belongs_to :job_effective
   belongs_to :employee
   belongs_to :hospital
 
@@ -9,7 +9,7 @@ class ContractEffective < ApplicationRecord
   rails_admin do
 
     show do
-      field :jobeffective
+      field :job_effective
       field :employee
       field :hospital
       field :setor
@@ -19,7 +19,7 @@ class ContractEffective < ApplicationRecord
     list do
       sort_by :id
 
-      field :jobeffective
+      field :job_effective
       field :employee
       field :hospital
       field :setor
@@ -27,7 +27,7 @@ class ContractEffective < ApplicationRecord
     end
 
     edit do
-      field :jobeffective
+      field :job_effective
       field :employee
       field :hospital
       field :setor
@@ -35,7 +35,7 @@ class ContractEffective < ApplicationRecord
     end
 
     create do
-      field :jobeffective
+      field :job_effective
       field :employee
       field :hospital
       field :setor

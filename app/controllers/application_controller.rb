@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
 
 	def selected_action_and_method  
 		if request.path_parameters[:action] == 'new' && request.method == 'POST'
-			ahoy.track " Criando novo item", { user_id: current_user.id, item: request.path_parameters[:model_name] }
+			object = request.path_parameters[:model_name]
+			ahoy.track " Criando novo item", { user_id: current_user.id, item: request.path_parameters[:model_name], object: request.parameters[object] }
 		end
 	end
 end
