@@ -4,6 +4,7 @@ class Employee < ApplicationRecord
 	
 	belongs_to :career
 	has_many :contracts
+	has_many :restrictions
 
 	validates :cpf, uniqueness: { scope: %i[masp admission], 
 		    message: "cpf, masp and admission together must be unique" }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_10_183444) do
+ActiveRecord::Schema.define(version: 2023_05_14_144147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2023_05_10_183444) do
     t.string "abbreviation"
     t.string "level"
     t.string "step"
-    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
@@ -123,6 +122,7 @@ ActiveRecord::Schema.define(version: 2023_05_10_183444) do
     t.bigint "career_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "authorization"
     t.index ["career_id"], name: "index_job_effectives_on_career_id"
   end
 
@@ -153,6 +153,18 @@ ActiveRecord::Schema.define(version: 2023_05_10_183444) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "restrictions", force: :cascade do |t|
+    t.integer "type_restriction"
+    t.string "description"
+    t.date "start_date"
+    t.date "finish_date"
+    t.string "time"
+    t.bigint "employee_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_restrictions_on_employee_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "profile"
@@ -177,4 +189,5 @@ ActiveRecord::Schema.define(version: 2023_05_10_183444) do
   add_foreign_key "job_effectives", "careers"
   add_foreign_key "jobs", "careers"
   add_foreign_key "jobs", "jobs"
+  add_foreign_key "restrictions", "employees"
 end

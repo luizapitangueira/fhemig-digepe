@@ -8,7 +8,6 @@ class Career < ApplicationRecord
 			  :abbreviation, 
 			  :level, 
 			  :step, 
-			  :quantity,
 			  :category,
 			  :workload,  presence: true
 
@@ -18,7 +17,6 @@ class Career < ApplicationRecord
 	    field  :abbreviation
 	    field  :level
 	    field  :step
-	    field  :quantity
 	    field  :category
 	    field  :workload	    
 	  end
@@ -29,7 +27,6 @@ class Career < ApplicationRecord
 	    field  :abbreviation
 	    field  :level
 	    field  :step
-	    field  :quantity
 	    field  :category
 	    field  :workload	    
 	  end

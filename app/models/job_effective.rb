@@ -4,6 +4,7 @@ class JobEffective < ApplicationRecord
   has_many :contract_effectives
 
   validates :status, presence: true
+  validates :authorization, length: { is: 6 }, on: :update
 
   enum status: %i[busy switch shutdown]
 
@@ -47,6 +48,7 @@ class JobEffective < ApplicationRecord
       end
       field  :start_date
       field  :finish_date
+      field  :authorization
     end
 
     create do
@@ -61,6 +63,7 @@ class JobEffective < ApplicationRecord
       end
       field  :start_date
       field  :finish_date
+      field  :authorization, :hidden
     end
 
   end

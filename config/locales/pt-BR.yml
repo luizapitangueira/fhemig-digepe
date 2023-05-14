@@ -64,9 +64,13 @@ pt-BR:
         job:
           attributes:
             authorization:
-              wrong_length: "Autorização precisa ter 6 dígitos!" 
+              wrong_length: "Autorização precisa ter 6 dígitos! Ela representa o código do documento SEI que autoriza a alteração na vaga." 
             if_switch:
               blank: "Você precisa preencher se a vaga foi transformada!"
+        job_effective:
+          attributes:
+            authorization:
+              wrong_length: "Autorização precisa ter 6 dígitos! Ela representa o código do documento SEI que autoriza a alteração na vaga." 
     models:
       ahoy:
         one: "Histórico"
@@ -95,6 +99,9 @@ pt-BR:
       mark:
         one: "Marco COFIN"
         other: "Marcos COFIN"
+      restriction:
+        one: "Restrição"
+        other: "Restrições"
       user:
         one: "Usuário do Sistema"
         other: "Usuários do Sistema"
@@ -106,7 +113,6 @@ pt-BR:
         abbreviation: "Sigla"
         level: "Nível"
         step: "Grau"
-        quantity: "Quantidade Contratos"
         category: "Categoria Profissional"
         workload: "Carga Horária"
       contract:
@@ -161,6 +167,7 @@ pt-BR:
           reserved: "Reservada"
         job: "Vaga de Origem"
       job_effective:
+        authorization: "Autorização"
         id: "Número da Vaga"
         career: "Carreira"
         start_date: "Data de Início da Vaga"
@@ -180,6 +187,19 @@ pt-BR:
         email: "Email"
         password: "Senha"
         password_confirmation: "Confirmação Senha"
+      restriction:
+        employee: "Pessoa"
+        type_restriction: "Tipo de Restrição"
+        type_restrictions:
+          illness: "Agravo"
+          family: "Adoecimento de Familiar"
+          couple: "Afastamento de Cônjuge"
+          training: "Capacitação"
+          other: "Outros"
+        description: "Justificativa"
+        start_date: "Data de Início da Restrição"
+        finish_date: "Data de Fim da Restrição"
+        time: "Duração"
   views:
   admin:
     home:

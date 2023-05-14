@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_restriction: 1
+  description: MyString
+  start_date: 2023-05-11
+  finish_date: 2023-05-11
+  time: MyString
+  employee: one
+
+two:
+  type_restriction: 1
+  description: MyString
+  start_date: 2023-05-11
+  finish_date: 2023-05-11
+  time: MyString
+  employee: two
