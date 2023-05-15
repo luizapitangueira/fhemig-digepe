@@ -11,6 +11,7 @@ class Job < ApplicationRecord
 
 	enum creation_type: %i[Transformação Autorização Desligamento_de_Efetivo]
 	enum status: %i[Livre Ocupada Publicada Transformada Reservada]
+	enum if_switch: %i[Não Sim]
 	
 	rails_admin do
 

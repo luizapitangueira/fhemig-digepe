@@ -4,6 +4,8 @@ class ContractEffective < ApplicationRecord
   belongs_to :employee
   belongs_to :hospital
 
+  enum if_office: %i[Não Sim]
+
   validates :if_office, presence: true
 
   rails_admin do

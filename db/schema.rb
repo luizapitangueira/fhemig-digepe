@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_15_172953) do
+ActiveRecord::Schema.define(version: 2023_05_15_191154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(version: 2023_05_15_172953) do
     t.bigint "employee_id", null: false
     t.bigint "hospital_id", null: false
     t.string "setor"
-    t.boolean "if_office"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "if_office"
     t.index ["employee_id"], name: "index_contract_effectives_on_employee_id"
     t.index ["hospital_id"], name: "index_contract_effectives_on_hospital_id"
     t.index ["job_effective_id"], name: "index_contract_effectives_on_job_effective_id"
@@ -134,7 +134,6 @@ ActiveRecord::Schema.define(version: 2023_05_15_172953) do
     t.integer "status", default: 1
     t.date "start_date"
     t.date "finish_date"
-    t.boolean "if_switch", default: false
     t.string "why_switch"
     t.string "notice"
     t.date "notice_publish_date"
@@ -142,6 +141,7 @@ ActiveRecord::Schema.define(version: 2023_05_15_172953) do
     t.integer "creation_type", default: 1
     t.bigint "job_id"
     t.bigint "authorization"
+    t.integer "if_switch"
     t.index ["career_id"], name: "index_jobs_on_career_id"
     t.index ["job_id"], name: "index_jobs_on_job_id"
   end

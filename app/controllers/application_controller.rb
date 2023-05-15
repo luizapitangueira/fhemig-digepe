@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 												item_id: request.parameters[:id],
 												object: request.parameters[object] }
 		end
-		# Edições de objetos - FUNCIONOU!!!!!!!!
+		# Edições de objetos
 		if request.path_parameters[:action] == 'edit' && request.method == 'POST'
 			object = request.path_parameters[:model_name]
 			ahoy.track " Editando um item", { user_id: current_user.id,
@@ -30,5 +30,10 @@ class ApplicationController < ActionController::Base
 												object: request.parameters[object] }
 		end
 	end
+
+	#def track_destroy_action(object)
+	#	p object.to_json
+	#	p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" 
+	#end
 end
 

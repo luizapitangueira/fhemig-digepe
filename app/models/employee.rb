@@ -26,6 +26,17 @@ class Employee < ApplicationRecord
 	  	field :name
 	  	field :career
 	  	field :type_relationship
+	  	field '', :string do 
+	  		label 'Última Restrição'
+	  		formatted_value do 
+	  			restricted = Restriction.where(employee: bindings[:object][:id]).last 
+	  			if restricted
+	  				"Tipo: #{restricted.type_restriction}, Data de Início: #{restricted.start_date}, Data de fim: #{restricted.finish_date}" 
+	  			else
+	  				'Não possui!'
+	  			end
+	  		end
+	  	end
 	  end
 
 	  list do
@@ -37,6 +48,17 @@ class Employee < ApplicationRecord
     	field :name
     	field :career
     	field :type_relationship
+    	field '', :string do 
+	  		label 'Já Possuiu Restrição?'
+	  		formatted_value do 
+	  			restricted = Restriction.where(employee: bindings[:object][:id]).last 
+	  			if restricted
+	  				'Sim'
+	  			else
+	  				'Não'
+	  			end
+	  		end
+	  	end
 	  end
 
 	  edit do
