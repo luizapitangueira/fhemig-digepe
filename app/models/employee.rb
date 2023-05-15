@@ -15,7 +15,7 @@ class Employee < ApplicationRecord
 			  :name, 
 			  :type_relationship, presence: true
 
-	enum type_relationship: %i[effective contract other]
+	enum type_relationship: %i[Efetivo Contrato Outro]
 
 	rails_admin do
 
@@ -25,11 +25,7 @@ class Employee < ApplicationRecord
 	  	field :admission
 	  	field :name
 	  	field :career
-	  	field :type_relationship, :enum do 
-	    	pretty_value do 
-	    		value ? I18n.t("activerecord.attributes.employee.type_relationships.#{value}") : '-'
-	    	end 
-	    end
+	  	field :type_relationship
 	  end
 
 	  list do
@@ -40,11 +36,7 @@ class Employee < ApplicationRecord
     	field :admission
     	field :name
     	field :career
-    	field :type_relationship, :enum do 
-	    	pretty_value do 
-	    		value ? I18n.t("activerecord.attributes.employee.type_relationships.#{value}") : '-'
-	    	end 
-	    end
+    	field :type_relationship
 	  end
 
 	  edit do
@@ -52,15 +44,8 @@ class Employee < ApplicationRecord
 	    field :masp
 	    field :admission
 	    field :name
-	    field :career	    
-	    field :type_relationship, :enum do 
-			enum do 
-				array = Employee.type_relationships.map do |key,value|
-					[I18n.t("activerecord.attributes.employee.type_relationships.#{key}"),value]
-				end
-				array.to_h
-			end
-		end
+	    field :career	
+	    field :type_relationship    
 	  end
 
 	  create do
@@ -69,14 +54,7 @@ class Employee < ApplicationRecord
 	    field :admission
 	    field :name
 	    field :career	    
-	    field :type_relationship, :enum do 
-			enum do 
-				array = Employee.type_relationships.map do |key,value|
-					[I18n.t("activerecord.attributes.employee.type_relationships.#{key}"),value]
-				end
-				array.to_h
-			end
-		end
+	    field :type_relationship
 	  end
 
 	end

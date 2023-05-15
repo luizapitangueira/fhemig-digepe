@@ -135,10 +135,6 @@ pt-BR:
         name: "Nome"
         career: "Carreira"
         type_relationship: "Tipo de Vínculo"
-        type_relationships: 
-          contract: "Contrato Administrativo"
-          effective: "Cargo Efetivo"
-          other: "Outro"
       hospital:
         name: "Nome"
         abbreviation: "Sigla"

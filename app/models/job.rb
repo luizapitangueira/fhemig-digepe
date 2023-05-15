@@ -9,24 +9,15 @@ class Job < ApplicationRecord
 	validates :status, :if_switch, :creation_type, presence: true
 	validates :authorization, length: { is: 6 }, on: :update
 
-	enum status: %i[free busy publish switch reserved]
-	enum creation_type: %i[switched authorized effec_shutdown]
-
+	enum creation_type: %i[Transformação Autorização Desligamento_de_Efetivo]
+	enum status: %i[Livre Ocupada Publicada Transformada Reservada]
+	
 	rails_admin do
 
 	  show do
 	    field  :id
 	    field  :career
-	    field  :status, :enum do 
-	    	pretty_value do 
-	    		value ? I18n.t("activerecord.attributes.job.statuses.#{value}") : '-'
-	    	end 
-	    end
-	    field  :creation_type, :enum do 
-	    	pretty_value do 
-	    		value ? I18n.t("activerecord.attributes.job.creation_types.#{value}") : '-'
-	    	end 
-	    end
+	    field  :status
 	    field  :job
 	    field  :start_date
 	    field  :finish_date
@@ -42,38 +33,16 @@ class Job < ApplicationRecord
 
 	    field  :id
 	    field  :career
-	    field  :status, :enum do 
-	    	pretty_value do 
-	    		value ? I18n.t("activerecord.attributes.job.statuses.#{value}") : '-'
-	    	end 
-	    end
-	    field  :creation_type, :enum do 
-	    	pretty_value do 
-	    		value ? I18n.t("activerecord.attributes.job.creation_types.#{value}") : '-'
-	    	end 
-	    end
+	    field  :status
+	    field  :creation_type
 	    field  :workload
 	    field  :if_switch
 	  end
 
 	  edit do
 		field  :career
-		field  :status, :enum do 
-			enum do 
-				array = Job.statuses.map do |key,value|
-					[I18n.t("activerecord.attributes.job.statuses.#{key}"),value]
-				end
-				array.to_h
-			end
-		end
-		field  :creation_type, :enum do 
-			enum do 
-				array = Job.creation_types.map do |key,value|
-					[I18n.t("activerecord.attributes.job.creation_types.#{key}"),value]
-				end
-				array.to_h
-			end
-		end
+		field  :status
+		field  :creation_type
 		field  :job
 		field  :start_date
 	    field  :finish_date
@@ -88,22 +57,8 @@ class Job < ApplicationRecord
 
 	  create do
 		field  :career
-		field  :status, :enum do 
-			enum do 
-				array = Job.statuses.map do |key,value|
-					[I18n.t("activerecord.attributes.job.statuses.#{key}"),value]
-				end
-				array.to_h
-			end
-		end
-		field  :creation_type, :enum do 
-			enum do 
-				array = Job.creation_types.map do |key,value|
-					[I18n.t("activerecord.attributes.job.creation_types.#{key}"),value]
-				end
-				array.to_h
-			end
-		end
+		field  :status
+		field  :creation_type
 		field  :job
 		field  :start_date
 	    field  :finish_date
