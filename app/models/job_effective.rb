@@ -14,6 +14,7 @@ class JobEffective < ApplicationRecord
       field  :id
       field  :career
       field  :status
+      field  :workload
       field  :start_date
       field  :finish_date
     end
@@ -24,6 +25,7 @@ class JobEffective < ApplicationRecord
       field  :id
       field  :career
       field  :status
+      field  :workload
       field  :start_date
       field  :finish_date
     end
@@ -31,6 +33,7 @@ class JobEffective < ApplicationRecord
     edit do
       field  :career
       field  :status
+      field  :workload
       field  :start_date
       field  :finish_date
       field  :authorization
@@ -39,6 +42,7 @@ class JobEffective < ApplicationRecord
     create do
       field  :career
       field  :status
+      field  :workload
       field  :start_date
       field  :finish_date
       field  :authorization, :hidden

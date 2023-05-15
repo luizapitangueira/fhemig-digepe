@@ -167,6 +167,7 @@ pt-BR:
         id: "Número da Vaga"
         career: "Carreira"
         start_date: "Data de Início da Vaga"
+        workload: "Carga Horária"
         finish_date: "Data de Fim da Vaga"
         status: "Status da Vaga"
         statuses:
