@@ -9,6 +9,7 @@ class Restriction < ApplicationRecord
 
     show do
       field :employee
+      field :cpf
       field :type_restriction
       field :description
       field :start_date
@@ -20,6 +21,7 @@ class Restriction < ApplicationRecord
       sort_by :employee
 
       field :employee
+      field :cpf
       field :type_restriction
       field :start_date
       field :finish_date
