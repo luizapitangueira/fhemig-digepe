@@ -34,7 +34,9 @@ class JobEffective < ApplicationRecord
       field  :career
       field  :status
       field  :workload
-      field  :start_date
+      field  :start_date do 
+        strftime_format '%d/%m/%Y'
+      end
       field  :finish_date
       field  :authorization
     end

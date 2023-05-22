@@ -1,15 +1,5 @@
 <header class="navbar navbar-dark sticky-top bg-blue flex-md-nowrap p-0 shadow">
 	<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">FHEMIG</a>
-	<!--<button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-	<div class="navbar-nav">
-		<div class="nav-item text-nowrap">
-		<a class="nav-link px-3" href="#">Sign out</a>
-		</div> 
-	</div>
-	-->
 </header>
 	
 	<div class="container-fluid">
@@ -23,94 +13,22 @@
 								Dashboard
 							</a>
 						</li>
-						<!--<li class="nav-item">
-						<a class="nav-link" href="#">
-						<span data-feather="file"></span>
-						Orders
-						</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link" href="#">
-						<span data-feather="shopping-cart"></span>
-						Products
-						</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link" href="#">
-						<span data-feather="users"></span>
-						Customers
-						</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link" href="#">
-						<span data-feather="bar-chart-2"></span>
-						Reports
-						</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link" href="#">
-						<span data-feather="layers"></span>
-						Integrations
-						</a>
-						</li>
-						-->
 					</ul>
-	
-	<!--
-	<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-	<span>Saved reports</span>
-	<a class="link-secondary" href="#" aria-label="Add a new report">
-	<span data-feather="plus-circle"></span>
-	</a>
-	</h6>
-	<ul class="nav flex-column mb-2">
-	<li class="nav-item">
-	<a class="nav-link" href="#">
-	<span data-feather="file-text"></span>
-	Current month
-	</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">
-	<span data-feather="file-text"></span>
-	Last quarter
-	</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">
-	<span data-feather="file-text"></span>
-	Social engagement
-	</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">
-	<span data-feather="file-text"></span>
-	Year-end sale
-	</a>
-	</li>
-	</ul>
--->
 				</div>
 			</nav>
 	
-	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 			<h1 class="h2">Painel Gestão de Contratos</h1>
 			<div class="btn-toolbar mb-2 mb-md-0">
-			<!--
-			<div class="btn-group me-2">
-				<button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-				<button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-			</div> -->
-
-			<!--<button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
-			<%= link_to 'Entrar', rails_admin_path, class: 'btn btn-primary' %>
-			<!--</button>-->
+				<%= link_to 'Entrar', rails_admin_path, class: 'btn btn-primary' %>
 			</div>
 		</div>
 
 		<div class="container">
 			<div class="alert alert-warning d-flex align-items-center" role="alert">
+
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
   				<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
   				<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
@@ -118,17 +36,28 @@
   				<div>
     				<span><%= @count_contracts_due_in_90_days %> contratos administrativos com vencimento previsto para 90 dias </span>
   				</div>
+
 			</div>
+
 			<div class="row">
+
 				<div class="four col">	
 					<div class="counter-box colored">
 						<i class="fa fa-thumbs-o-up"></i>
-						<span class="counter"><%= @count_jobs[:total] %></span>
-						<p>Total de Vagas de Contratos</p>
+						<span class="counter"><%= @count_jobs_all %></span>
+						<p>Força de Trabalho Total</p>
 					</div>
 				</div>
 
 				<div class="four col">	
+					<div class="counter-box colored">
+						<i class="fa fa-thumbs-o-up"></i>
+						<span class="counter"><%=  @count_workload_all %></span>
+						<p>Carga Horária Semanal Total</p>
+					</div>
+				</div>
+
+<!-- 				<div class="four col">	
 					<div class="counter-box bg-green">
 						<i class="fa fa-thumbs-o-up"></i>
 						<span class="counter"><%= @count_jobs[:free] %></span>
@@ -142,9 +71,10 @@
 						<span class="counter"><%= @count_jobs[:busy] %></span>
 						<p>Vagas Ocupadas de Contratos</p>
 					</div>
-				</div>
+				</div> -->
 
 			</div>
+
 			<div class="card">
 			  	<div class="card-header">
 			    	<p>Quantidade de Contratos por Data de Início</p>
@@ -154,15 +84,16 @@
 			  	</div>
 			  	<div class="card-body">
 			  		<div class="card-body">
-					<%= pie_chart([
-					  {name: "Series A", data: 25},
-					  {name: "Series B", data: 100},
-					  {name: "Series C", data: 200},
-					  {name: "Series D", data: 125}
-					], legend: "left") %>
+					<%= pie_chart([{"name":"radiologista","data":434},
+						{"name":"aux enfermagem","data":291},
+						{"name":"ginecologista","data":81},
+						{"name":"enfermeiro ","data":18},
+						{"name":"enfermeiro","data":1099},
+						{"name":"pediatra","data":624}], legend: "left") %>
+					<p> <%= @table_careers_categorys.to_json %></p>
 				</div>
 			  	</div>
-			</div>
+			</div> 
 
 							
 		</div>

@@ -5,8 +5,6 @@ class Hospital < ApplicationRecord
 	has_many :contracts
 	has_many :contract_effectives
 
-	#after_create :track_create
-
 	validates :name, :abbreviation, presence: true
 
 	rails_admin do
@@ -30,8 +28,4 @@ class Hospital < ApplicationRecord
 	  end
 	end
 
-	#def track_create
-	#	ApplicationController.new.track_create_action(binding)
-	#		raise
-	#end
 end

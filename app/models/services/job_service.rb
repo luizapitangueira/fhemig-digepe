@@ -5,17 +5,23 @@ class JobService
 		def count_jobs
 			{
 				total: Job.all.count,
-				free: Job.where(status: :free).count,
-				busy: Job.where(status: :busy).count
+				free: Job.where(status: :Livre).count,
+				busy: Job.where(status: :Ocupada).count
 			}
 		end
 
 		def table_careers_categorys
 			result = Job.joins(:career)
-            .group('(careers.name, careers.category)')
+            .group('(careers.category)')
             .count(:id)
-            .map { |k, count| { 'category' => k.split(',')[0].gsub('\"',''), 'name' => k.split(',')[1], 'Quant. vagas' => count} }
+            .map { |k, count| { 'name' => k.split(',')[0].gsub('\"',''), 'data' => count} }
             result
+		end
+
+		def count_workload
+			{
+				total_workload: Job.all.sum(:workload)
+			}
 		end
 
 	end
