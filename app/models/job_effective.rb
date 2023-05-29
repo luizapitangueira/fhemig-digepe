@@ -17,7 +17,7 @@ class JobEffective < ApplicationRecord
       field  :workload
       field  :start_date do
         formatted_value do
-          bindings[:object].display_finish_date
+          bindings[:object].display_start_date
         end
       end
       field  :finish_date do
@@ -72,6 +72,10 @@ class JobEffective < ApplicationRecord
 
   def display_finish_date
     finish_date.present? ? finish_date.strftime('%d/%m/%Y') : '-'
+  end
+
+  def display_start_date
+    start_date.present? ? start_date.strftime('%d/%m/%Y') : '-'
   end
 
 end
