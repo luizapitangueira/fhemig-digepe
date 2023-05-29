@@ -12,8 +12,14 @@ class Restriction < ApplicationRecord
       field :cpf
       field :type_restriction
       field :description
-      field :start_date
-      field :finish_date
+      field :start_date, :date do
+        strftime_format '%d/%m/%Y'
+      end
+      field :finish_date do
+        formatted_value do
+          bindings[:object].display_finish_date
+        end
+      end
       field :time
     end
 
@@ -32,8 +38,14 @@ class Restriction < ApplicationRecord
       field :employee
       field :type_restriction
       field :description
-      field :start_date
-      field :finish_date
+      field :start_date, :date do
+        strftime_format '%d/%m/%Y'
+        read_only true
+      end
+      field :finish_date, :date do
+          strftime_format '%d/%m/%Y'
+          read_only false
+      end     
       field :time
     end
 
@@ -41,12 +53,21 @@ class Restriction < ApplicationRecord
       field :employee
       field :type_restriction
       field :description
-      field :start_date
-      field :finish_date
+      field :start_date, :date do
+        strftime_format '%d/%m/%Y'
+        read_only false
+      end
+      field :finish_date, :date do
+          strftime_format '%d/%m/%Y'
+          read_only false
+      end
       field :time
     end
 
   end
 
+  def display_finish_date
+    finish_date.present? ? finish_date.strftime('%d/%m/%Y') : '-'
+  end
 
 end

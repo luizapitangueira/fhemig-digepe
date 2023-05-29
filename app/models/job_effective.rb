@@ -15,8 +15,16 @@ class JobEffective < ApplicationRecord
       field  :career
       field  :status
       field  :workload
-      field  :start_date
-      field  :finish_date
+      field  :start_date do
+        formatted_value do
+          bindings[:object].display_finish_date
+        end
+      end
+      field  :finish_date do
+        formatted_value do
+          bindings[:object].display_finish_date
+        end
+      end
     end
 
     list do
@@ -34,10 +42,14 @@ class JobEffective < ApplicationRecord
       field  :career
       field  :status
       field  :workload
-      field  :start_date do 
-        strftime_format '%d/%m/%Y'
-      end
-      field  :finish_date
+      field  :start_date, :date do
+          strftime_format '%d/%m/%Y'
+          read_only false
+      end     
+      field  :finish_date, :date do
+          strftime_format '%d/%m/%Y'
+          read_only false
+      end     
       field  :authorization
     end
 
@@ -45,11 +57,21 @@ class JobEffective < ApplicationRecord
       field  :career
       field  :status
       field  :workload
-      field  :start_date
-      field  :finish_date
+      field  :start_date, :date do
+          strftime_format '%d/%m/%Y'
+          read_only false
+      end     
+      field  :finish_date, :date do
+          strftime_format '%d/%m/%Y'
+          read_only false
+      end     
       field  :authorization, :hidden
     end
 
+  end
+
+  def display_finish_date
+    finish_date.present? ? finish_date.strftime('%d/%m/%Y') : '-'
   end
 
 end

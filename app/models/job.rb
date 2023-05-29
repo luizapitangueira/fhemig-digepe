@@ -20,8 +20,16 @@ class Job < ApplicationRecord
 	    field  :career
 	    field  :status
 	    field  :job
-	    field  :start_date
-	    field  :finish_date
+	    field  :start_date do
+	  	  formatted_value do
+	  	  	bindings[:object].display_finish_date
+	  	  end
+	  	end
+	    field  :finish_date do
+	  	  formatted_value do
+	  	  	bindings[:object].display_finish_date
+	  	  end
+	  	end
 	    field  :if_switch
 	    field  :why_switch
 	    field  :notice
@@ -45,8 +53,14 @@ class Job < ApplicationRecord
 		field  :status
 		field  :creation_type
 		field  :job
-		field  :start_date
-	    field  :finish_date
+		field  :start_date, :date do
+  	  		strftime_format '%d/%m/%Y'
+  	  		read_only false
+	  	end	    
+	    field  :finish_date, :date do
+  	  		strftime_format '%d/%m/%Y'
+  	  		read_only false
+	  	end	    
 	    field  :if_switch
 	    field  :why_switch
 	    field  :notice
@@ -61,8 +75,14 @@ class Job < ApplicationRecord
 		field  :status
 		field  :creation_type
 		field  :job
-		field  :start_date
-	    field  :finish_date
+		field  :start_date, :date do
+  	  		strftime_format '%d/%m/%Y'
+  	  		read_only false
+	  	end	    
+	    field  :finish_date, :date do
+  	  		strftime_format '%d/%m/%Y'
+  	  		read_only false
+	  	end	    
 	    field  :if_switch
 	    field  :why_switch
 	    field  :notice
@@ -72,6 +92,10 @@ class Job < ApplicationRecord
 	    field  :authorization, :hidden
 	  end
 
+	end
+
+	def display_finish_date
+		finish_date.present? ? finish_date.strftime('%d/%m/%Y') : '-'
 	end
 
 end

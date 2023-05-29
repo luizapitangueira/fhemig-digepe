@@ -32,15 +32,9 @@ class Contract < ApplicationRecord
       	field :job
 	  	field :employee
 	  	field :hospital
-	  	field :start_date, :date do
-	  	  strftime_format '%d/%m/%Y'
-	  	end
-	  	field :estimate_finish_date, :date do
-	  	  strftime_format '%d/%m/%Y'
-	  	end
-	  	field :finish_date, :date do
-	  	  strftime_format '%d/%m/%Y'
-	  	end
+	  	field :start_date
+	  	field :estimate_finish_date
+	  	field :finish_date
 	  end
 
 	  edit do
