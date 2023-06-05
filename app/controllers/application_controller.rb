@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 												item: request.path_parameters[:model_name],
 												item_id: request.parameters[:id],
 												object: request.parameters[object] }
-		tudo end
+		end
 		# Remoção de objetos
 		if request.path_parameters[:action] == 'delete' && request.method == 'POST'
 			object = request.path_parameters[:model_name]

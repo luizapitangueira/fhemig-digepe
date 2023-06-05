@@ -1,40 +1,17 @@
-<header class="navbar navbar-dark sticky-top bg-blue flex-md-nowrap p-0 shadow">
-	<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">FHEMIG</a>
-</header>
-	
-	<div class="container-fluid">
-		<div class="row">
-			<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-				<div class="position-sticky pt-3">
-					<ul class="nav flex-column">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">
-								<span data-feather="home"></span>
-								Dashboard
-							</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-	
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-			<h1 class="h2">Painel Gestão de Contratos</h1>
-			<div class="btn-toolbar mb-2 mb-md-0">
-				<%= link_to 'Entrar', rails_admin_path, class: 'btn btn-primary' %>
-			</div>
-		</div>
 
 		<div class="container">
-			<div class="alert alert-warning d-flex align-items-center" role="alert">
+				<div class="alert alert-warning d-flex align-items-center bg-red" role="alert">
 
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-  				<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-  				<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-				</svg>
-  				<div>
-    				<span><%= @count_contracts_due_in_90_days %> contratos administrativos com vencimento previsto para 90 dias </span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+  						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  						<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+					</svg>
+
+  					<div>
+  						<span><%= @count_contracts_due_in_90_days %> contratos administrativos com vencimento previsto para 90 dias </span>
+  					</div>
+
   				</div>
 
 			</div>
@@ -50,29 +27,71 @@
 				</div>
 
 				<div class="four col">	
-					<div class="counter-box colored">
-						<i class="fa fa-thumbs-o-up"></i>
-						<span class="counter"><%=  @count_workload_all %></span>
-						<p>Carga Horária Semanal Total</p>
-					</div>
-				</div>
-
-<!-- 				<div class="four col">	
 					<div class="counter-box bg-green">
 						<i class="fa fa-thumbs-o-up"></i>
 						<span class="counter"><%= @count_jobs[:free] %></span>
-						<p>Vagas Livres de Contratos</p>
+						<p>Força de Trabalho FHEMIG</p>
 					</div>
 				</div>
 
+			</div>
+
+			<div class="row">
 				<div class="four col">	
-					<div class="counter-box bg-red">
+						<div class="counter-box colored">
+							<i class="fa fa-thumbs-o-up"></i>
+							<span class="counter"><%=  @count_workload_all %></span>
+							<p>Carga Horária Semanal Total</p>
+						</div>
+					</div>
+
+				<div class="four col">	
+					<div class="counter-box bg-green">
 						<i class="fa fa-thumbs-o-up"></i>
 						<span class="counter"><%= @count_jobs[:busy] %></span>
-						<p>Vagas Ocupadas de Contratos</p>
+						<p>Carga Horária Semanal FHEMIG</p>
 					</div>
-				</div> -->
+				</div> 
 
+			</div>
+
+			<div class="row">
+
+				<div class="card-body">
+			  		<div class="card-body">
+					<%= pie_chart(@table_careers_categorys, legend: "left") %>
+					</div>
+			  	</div>
+
+			</div>
+
+			<div class="row">
+			  	<div class="card-body">
+			  		<h1> Marco Cofin </h1>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">Número de Vagas</th>
+								<th scope="col">Carga Horária</th>
+								<th scope="col">Data de Publicação</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= @count_marks[:jobs]  %></td>
+								<td><%= @count_marks[:workload] %></td>
+								<td><%= @count_marks[:publish_date] %></td>
+							</tr>
+
+							<tr>
+								<td><%= @count_marks[:percent_jobs] %>%</td>
+								<td><%= @count_marks[:percent_workload] %>%</td>
+								<td>-</td>
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
 			</div>
 
 			<div class="card">
@@ -82,24 +101,17 @@
 			 	<div class="card-body">
 			    	<%= area_chart(counting_level_careers, {adapter: 'google'})%>
 			  	</div>
-			  	<div class="card-body">
-			  		<div class="card-body">
-					<%= pie_chart([{"name":"radiologista","data":434},
-						{"name":"aux enfermagem","data":291},
-						{"name":"ginecologista","data":81},
-						{"name":"enfermeiro ","data":18},
-						{"name":"enfermeiro","data":1099},
-						{"name":"pediatra","data":624}], legend: "left") %>
-					<p> <%= @table_careers_categorys.to_json %></p>
-				</div>
-			  	</div>
 			</div> 
 
+			<div class="row">
+
+				<!-- Quantidade de contratos com restrições por unidade  -->
+
+			</div>
 							
 		</div>
 	</div>
 	
 		
 
-</main>
 

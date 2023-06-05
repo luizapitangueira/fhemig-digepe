@@ -16,6 +16,12 @@ class HomeController < ApplicationController
     @count_workload_jobs = JobService.count_workload
     @count_workload_jobs_effectives = JobEffectiveService.count_workload
     @count_workload_all = @count_workload_jobs[:total_workload] + @count_workload_jobs_effectives[:total_workload]
+
+    @count_marks = MarkService.last_mark(@count_jobs_all, @count_workload_all)
+  end
+
+  def report_ahoy
+    @data = Ahoy::Event.all
   end
 
 end

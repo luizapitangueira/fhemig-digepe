@@ -6,6 +6,14 @@ class Hospital < ApplicationRecord
 	has_many :contract_effectives
 
 	validates :name, :abbreviation, presence: true
+	before_destroy :check_dependencies
+
+	def check_dependencies 
+		if contracts.exists? || contract_effectives.exists?
+			errors.add(:base, "Esse Hospital pertence a vínculos de contratos ou efetivos, não podendo portanto ser excluído")
+			throw :abort
+		end
+	end
 
 	rails_admin do
 	  weight -3

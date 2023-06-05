@@ -27,7 +27,11 @@ class Restriction < ApplicationRecord
       sort_by :employee
 
       field :employee
-      field :cpf
+      field :cpf do
+        formatted_value do 
+          bindings[:object].employee.cpf
+        end
+      end
       field :type_restriction
       field :start_date
       field :finish_date
