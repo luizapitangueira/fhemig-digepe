@@ -30,6 +30,8 @@ gem 'groupdate'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
+gem 'jquery-datatables-rails', '~> 3.4.0'
+
 # Use Boostrap
 gem 'jquery-rails'
 
@@ -51,9 +53,6 @@ gem 'rails_admin', '~> 3.1', git: 'https://github.com/sferik/rails_admin.git'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
