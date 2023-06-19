@@ -7,4 +7,15 @@ module HomeHelper
 		Career.group(:level).count
 	end
 
+	def restrictions_by_units
+		Employee
+			.joins(:contracts, :restrictions)
+			.joins('INNER JOIN hospitals h ON contracts.hospital_id = h.id')
+			.where('restrictions.finish_date <= ? and restrictions.start_date <= ?', Time.zone.now, Time.zone.now)
+			.group('h.abbreviation')
+			.order('h.abbreviation')
+			.select('h.abbreviation')
+			.count('employees.id') 
+	end
+
 end

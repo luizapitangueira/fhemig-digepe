@@ -24,5 +24,9 @@ class JobService
 			}
 		end
 
+		def count_start_date
+			Job.where.not(start_date:nil).group(:start_date).count  
+		end
+
 	end
 end

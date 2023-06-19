@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     @count_jobs = JobService.count_jobs
     @count_jobs_effectives = JobEffectiveService.count_jobs_effectives
     @count_jobs_all = @count_jobs[:total] + @count_jobs_effectives[:total] 
+    @count_start_date = JobService.count_start_date
 
     @count_careers = CareerService.count_careers
 
@@ -21,7 +22,11 @@ class HomeController < ApplicationController
   end
 
   def report_ahoy
-    @data = Ahoy::Event.all
+    @data_ahoy = Ahoy::Event.all
+  end
+
+  def restriction
+    
   end
 
 end

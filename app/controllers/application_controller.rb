@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user!
-	#layout :layout_by_resource
+	layout :layout_by_resource
 	before_action :selected_action_and_method
 	after_action :create_selected
 
@@ -45,10 +45,8 @@ class ApplicationController < ActionController::Base
 
   protected
   def layout_by_resource
-    if devise_controller?
+    if devise_controller? && resource_name == :user && action_name == 'new'
       'login'
-    else
-      'application'
     end
   end
 

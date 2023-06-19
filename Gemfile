@@ -30,8 +30,6 @@ gem 'groupdate'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
-gem 'jquery-datatables-rails', '~> 3.4.0'
-
 # Use Boostrap
 gem 'jquery-rails'
 

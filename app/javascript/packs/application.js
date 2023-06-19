@@ -9,12 +9,8 @@ import "channels"
 import ApexCharts from 'apexcharts'
 window.ApexCharts = ApexCharts
 import $ from 'jquery'
-import 'datatables.net'
+
 
 Rails.start()
 ActiveStorage.start()
 
-$(document).ready(function () {
-	alert("OI");
-    $('#example').DataTable();
-});
