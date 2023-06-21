@@ -13,6 +13,7 @@ class HomeController < ApplicationController
 
     @count_contracts_due_in_90_days = ContractService.count_contracts_due_in_90_days
     @table_careers_categorys = JobService.table_careers_categorys
+    @table_careers_categorys_fhemig = JobService.table_careers_categorys_fhemig
 
     @count_workload_jobs = JobService.count_workload
     @count_workload_jobs_effectives = JobEffectiveService.count_workload
@@ -26,6 +27,14 @@ class HomeController < ApplicationController
   end
 
   def restriction
+    
+  end
+
+  def jobcontract
+    
+  end
+
+  def jobeffective
     
   end
 

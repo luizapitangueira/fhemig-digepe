@@ -19,7 +19,7 @@ class Ability
       can :manage, JobEffective
       can :manage, Mark
       can :manage, Restriction
-      can :read, Ahoy::Event
+      # can :read, Ahoy::Event
       # can :read, Ahoy::Visit
       # can :read, Job
       # can :update, Job

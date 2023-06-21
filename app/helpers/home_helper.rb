@@ -11,7 +11,7 @@ module HomeHelper
 		Employee
 			.joins(:contracts, :restrictions)
 			.joins('INNER JOIN hospitals h ON contracts.hospital_id = h.id')
-			.where('restrictions.finish_date <= ? and restrictions.start_date <= ?', Time.zone.now, Time.zone.now)
+			#.where('(restrictions.finish_date <= ? or restrictions.finish_date = null) and restrictions.start_date <= ?', Time.zone.now, Time.zone.now)
 			.group('h.abbreviation')
 			.order('h.abbreviation')
 			.select('h.abbreviation')

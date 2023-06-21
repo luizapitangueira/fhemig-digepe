@@ -3,7 +3,7 @@ class Restriction < ApplicationRecord
 
   validates :employee, :type_restriction, :start_date, :time, presence: true
 
-  enum type_restriction: %i[Agravo Família Capacitação Outro]
+  enum type_restriction: %i[Agravo Familiar Capacitação Outro]
 
   rails_admin do
 

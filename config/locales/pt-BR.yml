@@ -148,7 +148,7 @@ pt-BR:
           switched: "Transformada"
         id: "Número da Vaga"
         if_switch: "Essa vaga foi transformada?"
-        job: "Vaga de Origem"
+        job: "Vaga de Origem - Contrato Administrativo"
         start_date: "Data de Início da Vaga"
         finish_date: "Data de Fim da Vaga"
         notice: "Edital de publicação da Vaga"

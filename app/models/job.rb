@@ -19,6 +19,7 @@ class Job < ApplicationRecord
 	    field  :id
 	    field  :career
 	    field  :status
+	    field  :creation_type
 	    field  :job
 	    field  :start_date do
 	  	  formatted_value do
