@@ -7,11 +7,9 @@ class HomeController < ApplicationController
     @count_jobs = JobService.count_jobs
     @count_jobs_effectives = JobEffectiveService.count_jobs_effectives
     @count_jobs_all = @count_jobs[:total] + @count_jobs_effectives[:total] 
-    @count_start_date = JobService.count_start_date
 
     @count_careers = CareerService.count_careers
 
-    @count_contracts_due_in_90_days = ContractService.count_contracts_due_in_90_days
     @table_careers_categorys = JobService.table_careers_categorys
     @table_careers_categorys_fhemig = JobService.table_careers_categorys_fhemig
 
@@ -31,6 +29,10 @@ class HomeController < ApplicationController
   end
 
   def jobcontract
+    @count_contracts_due_in_90_days = ContractService.count_contracts_due_in_90_days
+    @count_start_date = JobService.count_start_date
+
+    @data_contracts_due_in_90_days = ContractService.data_contracts_due_in_90_days
     
   end
 

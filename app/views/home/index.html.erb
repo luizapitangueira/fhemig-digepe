@@ -1,115 +1,141 @@
 <div class="container">
-	<div class="row">
 
-	  	<div class="card-body">
-	  		<h1> Marco Cofin </h1>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th scope="col">Número de Vagas</th>
-						<th scope="col">Carga Horária</th>
-						<th scope="col">Data de Publicação</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><%= @count_marks[:jobs]  %></td>
-						<td><%= @count_marks[:workload] %></td>
-						<td><%= @count_marks[:publish_date] %></td>
-					</tr>
+	<div class="row justify-content-center">
 
-					<tr>
-						<td><%= @count_marks[:percent_jobs] %>%</td>
-						<td><%= @count_marks[:percent_workload] %>%</td>
-						<td>-</td>
-					</tr>
-				</tbody>
+		<div class="col-md-6">
 
-			</table>
-		</div>
-	</div>
+		  	<div class="card-body">
+		  		<h4> Marco Cofin</h4>
+		  		<h6> Última Publicação: <%= @count_marks[:publish_date] %></h6>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col">Número de Vagas</th>
+							<th scope="col">Carga Horária</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td scope="row"><b>Aprovadas</b></td>
+							<td><%= @count_marks[:jobs]  %></td>
+							<td><%= @count_marks[:workload] %></td>
+						</tr>
 
-	<div class="row">
+						<tr>
+							<td scope="row"><b>Utilizadas</b></td>
+							<td><%= @count_marks[:percent_jobs] %>%</td>
+							<td><%= @count_marks[:percent_workload] %>%</td>
+						</tr>
+					</tbody>
 
-		<div class="four col">	
-			<div class="counter-box colored">
-				<i class="fa fa-thumbs-o-up"></i>
-				<span class="counter"><%= @count_jobs_all %></span>
-				<p>Força de Trabalho Total</p>
+				</table>
 			</div>
 		</div>
 
-		<div class="four col">	
-				<div class="counter-box colored">
-					<i class="fa fa-thumbs-o-up"></i>
-					<span class="counter"><%=  @count_workload_all %></span>
-					<p>Carga Horária Semanal Total</p>
+	</div>
+
+	<br><br>
+
+	<div class="row mx-md-nr" >
+		<span class="border border-dark"></span>
+	</div>
+
+	<br><br>
+	
+	<div class="row">
+
+		<div class="col-md-6">
+
+			<div class="row">
+
+				<div class="four col">	
+					<div class="counter-box">
+						<i class="fa fa-thumbs-o-up"></i>
+						<span class="counter"><%= @count_jobs_all %></span>
+						<p>Força de Trabalho Total</p>
+					</div>
 				</div>
+
+				<div class="four col">	
+					<div class="counter-box">
+						<i class="fa fa-thumbs-o-up"></i>
+						<span class="counter"><%= @count_jobs[:free] %></span>
+						<p>Força de Trabalho FHEMIG</p>
+					</div>
+				</div>
+
+			</div>
+			<br><br><br>
+			<div class="row">
+
+				<div class="four col">	
+						<div class="counter-box">
+							<i class="fa fa-thumbs-o-up"></i>
+							<span class="counter"><%=  @count_workload_all %></span>
+							<p>Carga Horária Semanal Total</p>
+						</div>
+				</div>
+
+				<div class="four col">	
+					<div class="counter-box">
+						<i class="fa fa-thumbs-o-up"></i>
+						<span class="counter"><%= @count_jobs[:busy] %></span>
+						<p>Carga Horária Semanal FHEMIG</p>
+					</div>
+				</div>
+			</div>
+
 		</div>
 
-		<div class="four col">
-			<div class="card-body">
-				<%= pie_chart(@table_careers_categorys, legend: "left") %>
-			</div>
-	  	</div>
+		<div class="col-md-6">
 
-		<div class="four col">	
-			<div class="counter-box colored">
-				<i class="fa fa-thumbs-o-up"></i>
-				<span class="counter"><%= @count_jobs[:free] %></span>
-				<p>Vagas Livres Total</p>
-			</div>
+			<div class="four col">
+				<p><b>Categorias Profissionais</b></p>
+				<div class="card-body">
+					<%= pie_chart(@table_careers_categorys, legend: "left") %>
+				</div>
+		  	</div>
+
 		</div>
-
-		<div class="four col">	
-			<div class="counter-box colored">
-				<i class="fa fa-thumbs-o-up"></i>
-				<span class="counter"><%= @count_jobs[:busy] %></span>
-				<p>Vagas Ocupadas Total</p>
-			</div>
-		</div>
-
+		
 	</div>
+
+	<div class="row mx-md-nr" >
+		<span class="border border-dark"></span>
+	</div>
+	<br><br>
 
 	<div class="row">
 
-		<div class="four col">	
-			<div class="counter-box bg-green">
-				<i class="fa fa-thumbs-o-up"></i>
-				<span class="counter"><%= @count_jobs[:free] %></span>
-				<p>Força de Trabalho FHEMIG</p>
-			</div>
+		<div class="col-md-8">
+			<div class="four col">
+		  		<div class="card-body">
+				<%= pie_chart(@table_careers_categorys, legend: "left")%> 
+				</div>
+				/*previsao de finalizacao dos contratos ?? */
+		  	</div>
 		</div>
 
-		<div class="four col">
-	  		<div class="card-body">
-			<%= pie_chart(@table_careers_categorys_fhemig, legend: "left") %>
+		<div class="col-md-4">
+			<div class="four col">	
+				<div class="counter-box bg-red">
+					<i class="fa fa-thumbs-o-up"></i>
+					<span class="counter"><%= @count_jobs[:busy] %></span>
+					<p>Vagas Ocupadas Total</p>
+				</div>
 			</div>
-	  	</div>
-
-		<div class="four col">	
-			<div class="counter-box bg-green">
-				<i class="fa fa-thumbs-o-up"></i>
-				<span class="counter"><%= @count_jobs[:busy] %></span>
-				<p>Carga Horária Semanal FHEMIG</p>
-			</div>
-		</div> 
+			<br>
+			<div class="four col">	
+				<div class="counter-box bg-green">
+					<i class="fa fa-thumbs-o-up"></i>
+					<span class="counter"><%= @count_jobs[:free] %></span>
+					<p>Vagas Livres Total</p>
+				</div>
+			</div> 
+		</div>
 
 	</div>
 				
 </div>
 
-
-
-
-<div class="card">
-
-  	<div class="card-header">
-    	<p>Quantidade de Contratos por Data de Início</p>
-  	</div>
-	
-	<div class="card-body">
-   		<%= area_chart(@count_start_date, {adapter: 'google'})%>
-	</div>
-
-</div> 

@@ -79,8 +79,8 @@ pt-BR:
         one: "Carreira"
         other: "Carreiras"
       contract:
-        one: "Contrato Administrativo"
-        other: "Contratos Administrativos" 
+        one: "Vínculo Contrato Administrativo"
+        other: "Vínculos Contratos Administrativos" 
       contract_effective:
         one: "Vínculo Efetivos"
         other: "Vínculos Efetivos"

@@ -18,4 +18,9 @@ module HomeHelper
 			.count('employees.id') 
 	end
 
+	def count_contracts_due_in_90_days
+
+	end 
+
+	
 end
