@@ -24,31 +24,31 @@ task :remote_environment do
 end
 
 task setup: :remote_environment do
-  queue! %(mkdir -p "/root/fhemig-digepe/shared/log")
-  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/log")
+  command %(mkdir -p "/root/fhemig-digepe/shared/log")
+  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/log")
 
-  queue! %(mkdir -p "/root/fhemig-digepe/storage")
-  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/storage")
+  command %(mkdir -p "/root/fhemig-digepe/storage")
+  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/storage")
 
-  queue! %(touch "/root/fhemig-digepe/storage/index.html")
+  command %(touch "/root/fhemig-digepe/storage/index.html")
 
-  queue! %(mkdir -p "/root/fhemig-digepe/shared/config")
-  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/config")
+  command %(mkdir -p "/root/fhemig-digepe/shared/config")
+  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/config")
 
-  queue! %(mkdir -p "/root/fhemig-digepe/shared/pids")
-  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/pids")
+  command %(mkdir -p "/root/fhemig-digepe/shared/pids")
+  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/pids")
 
-  queue! %(mkdir -p "/root/fhemig-digepe/shared/tmp")
-  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/tmp")
+  command %(mkdir -p "/root/fhemig-digepe/shared/tmp")
+  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/tmp")
 
-  queue! %(touch "/root/fhemig-digepe/shared/config/database.yml")
-  queue  %(echo "-----> Be sure to edit 'shared/config/database.yml'.")
+  command %(touch "/root/fhemig-digepe/shared/config/database.yml")
+  command  %(echo "-----> Be sure to edit 'shared/config/database.yml'.")
 
-  queue! %(touch "/root/fhemig-digepe/shared/config/application.yml")
-  queue  %(echo "-----> Be sure to edit 'shared/config/application.yml'.")
+  command %(touch "/root/fhemig-digepe/shared/config/application.yml")
+  command  %(echo "-----> Be sure to edit 'shared/config/application.yml'.")
 
-  queue! %(touch "/root/fhemig-digepe/shared/config/secrets.yml")
-  queue  %(echo "-----> Be sure to edit 'shared/config/secrets.yml'.")
+  command %(touch "/root/fhemig-digepe/shared/config/secrets.yml")
+  command  %(echo "-----> Be sure to edit 'shared/config/secrets.yml'.")
 end
 
 desc 'Deploys the current version to the server.'
@@ -106,7 +106,7 @@ end
 # Roolback
 desc 'Rolls back the latest release'
 task rollback: :remote_environment do
-  queue! %(echo "-----> Rolling back to previous release for instance: #{domain}")
+  command %(echo "-----> Rolling back to previous release for instance: #{domain}")
 
   # Delete existing sym link and create a new symlink pointing to the previous release
   queue %(echo -n "-----> Creating new symlink from the previous release: ")
