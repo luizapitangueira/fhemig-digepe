@@ -61,8 +61,8 @@ task deploy: :remote_environment do
     invoke :'deploy:cleanup'
 
     to :launch do
-      queue %(echo -n '-----> Creating new restart.txt: ')
-      queue "touch /root/fhemig-digepe/shared/tmp/restart.txt"
+      command %(echo -n '-----> Creating new restart.txt: ')
+      command "touch /root/fhemig-digepe/shared/tmp/restart.txt"
     end
   end
 end
@@ -93,14 +93,14 @@ set :shared_paths, ['public/uploads', 'config/database.yml', 'log', 'tmp', 'conf
 # Show logs
 desc 'Show logs rails.'
 task 'logs:rails': :remote_environment do
-  queue 'echo "Contents of the log file are as follows:"'
-  queue "tail -f /root/fhemig-digepe/shared/log/production.log"
+  command 'echo "Contents of the log file are as follows:"'
+  command "tail -f /root/fhemig-digepe/shared/log/production.log"
 end
 
 desc 'Show logs Nginx.'
 task 'logs:nginx': :remote_environment do
-  queue 'echo "Contents of the log file are as follows:"'
-  queue 'tail -f /opt/nginx/logs/error.log'
+  command 'echo "Contents of the log file are as follows:"'
+  command 'tail -f /opt/nginx/logs/error.log'
 end
 
 # Roolback
@@ -109,31 +109,31 @@ task rollback: :remote_environment do
   command %(echo "-----> Rolling back to previous release for instance: #{domain}")
 
   # Delete existing sym link and create a new symlink pointing to the previous release
-  queue %(echo -n "-----> Creating new symlink from the previous release: ")
-  queue %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 2 | head -n 1)
-  queue! %(ls -Art "/root/fhemig-digepe/releases" | sort | tail -n 2 | head -n 1 | xargs -I active ln -nfs "/root/fhemig-digepe/releases/active" "/root/fhemig-digepe/current")
+  command %(echo -n "-----> Creating new symlink from the previous release: ")
+  command %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 2 | head -n 1)
+  command %(ls -Art "/root/fhemig-digepe/releases" | sort | tail -n 2 | head -n 1 | xargs -I active ln -nfs "/root/fhemig-digepe/releases/active" "/root/fhemig-digepe/current")
 
   # Remove latest release folder (active release)
-  queue %(echo -n "-----> Deleting active release: ")
-  queue %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 1)
-  queue! %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 1 | xargs -I active rm -rf "/root/fhemig-digepe/releases/active")
+  command %(echo -n "-----> Deleting active release: ")
+  command %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 1)
+  command %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 1 | xargs -I active rm -rf "/root/fhemig-digepe/releases/active")
 
-  queue %(echo -n "-----> Creating new restart.txt: ")
-  queue "touch /root/fhemig-digepe/shared/tmp/restart.txt"
+  command %(echo -n "-----> Creating new restart.txt: ")
+  command "touch /root/fhemig-digepe/shared/tmp/restart.txt"
 end
 
 # Maintenance
 # TornOff (Necessary gem https://github.com/biola/turnout)
 desc 'TurnOff'
 task 'system:turnoff': :remote_environment do
-  queue %(echo -n "-----> Turn Off System: ")
-  queue! %(cd "/root/fhemig-digepe/current")
-  queue "RAILS_ENV=#{rails_env} bundle exec rake maintenance:start"
+  command %(echo -n "-----> Turn Off System: ")
+  command %(cd "/root/fhemig-digepe/current")
+  command "RAILS_ENV=#{rails_env} bundle exec rake maintenance:start"
 end
 
 desc 'TurnOn'
 task 'system:turnon': :remote_environment do
-  queue %(echo -n "-----> Turn Off System: ")
-  queue! %(cd "/root/fhemig-digepe/current")
-  queue "RAILS_ENV=#{rails_env} bundle exec rake maintenance:end"
+  command %(echo -n "-----> Turn Off System: ")
+  command %(cd "/root/fhemig-digepe/current")
+  command "RAILS_ENV=#{rails_env} bundle exec rake maintenance:end"
 end
