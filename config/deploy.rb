@@ -54,13 +54,12 @@ end
 desc 'Deploys the current version to the server.'
 task deploy: :remote_environment do
   deploy do
-    invoke :'git:clone'
-    invoke :'deploy:link_shared_paths'
-    invoke :'bundle:install'
-    invoke :'rails:db_migrate'
-    invoke :'deploy:cleanup'
-
-    to :launch do
+    on :launch do
+      invoke :'git:clone'
+      invoke :'deploy:link_shared_paths'
+      invoke :'bundle:install'
+      invoke :'rails:db_migrate'
+      invoke :'deploy:cleanup'  
       command %(echo -n '-----> Creating new restart.txt: ')
       command "touch /root/fhemig-digepe/shared/tmp/restart.txt"
     end
