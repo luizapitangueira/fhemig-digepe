@@ -11,7 +11,7 @@ require 'mina/rvm'
 # Repository project
 set :application_name, 'fhemig-digepe'
 set :domain, '45.178.182.180'
-set :deploy_to, '/root/fhemig-digepe'
+#set :deploy_to, '/root/fhemig-digepe'
 set :repository, 'git@github.com:luizapitangueira/fhemig-digepe.git'
 set :branch, 'main'
 set :user, 'root'
@@ -24,30 +24,30 @@ task :remote_environment do
 end
 
 task setup: :remote_environment do
-  queue! %(mkdir -p "#{deploy_to}/shared/log")
-  queue! %(chmod g+rx,u+rwx "#{deploy_to}/shared/log")
+  queue! %(mkdir -p "/root/fhemig-digepe/shared/log")
+  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/log")
 
-  queue! %(mkdir -p "#{deploy_to}/storage")
-  queue! %(chmod g+rx,u+rwx "#{deploy_to}/storage")
+  queue! %(mkdir -p "/root/fhemig-digepe/storage")
+  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/storage")
 
-  queue! %(touch "#{deploy_to}/storage/index.html")
+  queue! %(touch "/root/fhemig-digepe/storage/index.html")
 
-  queue! %(mkdir -p "#{deploy_to}/shared/config")
-  queue! %(chmod g+rx,u+rwx "#{deploy_to}/shared/config")
+  queue! %(mkdir -p "/root/fhemig-digepe/shared/config")
+  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/config")
 
-  queue! %(mkdir -p "#{deploy_to}/shared/pids")
-  queue! %(chmod g+rx,u+rwx "#{deploy_to}/shared/pids")
+  queue! %(mkdir -p "/root/fhemig-digepe/shared/pids")
+  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/pids")
 
-  queue! %(mkdir -p "#{deploy_to}/shared/tmp")
-  queue! %(chmod g+rx,u+rwx "#{deploy_to}/shared/tmp")
+  queue! %(mkdir -p "/root/fhemig-digepe/shared/tmp")
+  queue! %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/tmp")
 
-  queue! %(touch "#{deploy_to}/shared/config/database.yml")
+  queue! %(touch "/root/fhemig-digepe/shared/config/database.yml")
   queue  %(echo "-----> Be sure to edit 'shared/config/database.yml'.")
 
-  queue! %(touch "#{deploy_to}/shared/config/application.yml")
+  queue! %(touch "/root/fhemig-digepe/shared/config/application.yml")
   queue  %(echo "-----> Be sure to edit 'shared/config/application.yml'.")
 
-  queue! %(touch "#{deploy_to}/shared/config/secrets.yml")
+  queue! %(touch "/root/fhemig-digepe/shared/config/secrets.yml")
   queue  %(echo "-----> Be sure to edit 'shared/config/secrets.yml'.")
 end
 
@@ -62,7 +62,7 @@ task deploy: :remote_environment do
 
     to :launch do
       queue %(echo -n '-----> Creating new restart.txt: ')
-      queue "touch #{deploy_to}/shared/tmp/restart.txt"
+      queue "touch /root/fhemig-digepe/shared/tmp/restart.txt"
     end
   end
 end
@@ -94,7 +94,7 @@ set :shared_paths, ['public/uploads', 'config/database.yml', 'log', 'tmp', 'conf
 desc 'Show logs rails.'
 task 'logs:rails': :remote_environment do
   queue 'echo "Contents of the log file are as follows:"'
-  queue "tail -f #{deploy_to}/shared/log/production.log"
+  queue "tail -f /root/fhemig-digepe/shared/log/production.log"
 end
 
 desc 'Show logs Nginx.'
@@ -110,16 +110,16 @@ task rollback: :remote_environment do
 
   # Delete existing sym link and create a new symlink pointing to the previous release
   queue %(echo -n "-----> Creating new symlink from the previous release: ")
-  queue %(ls "#{deploy_to}/releases" -Art | sort | tail -n 2 | head -n 1)
-  queue! %(ls -Art "#{deploy_to}/releases" | sort | tail -n 2 | head -n 1 | xargs -I active ln -nfs "#{deploy_to}/releases/active" "#{deploy_to}/current")
+  queue %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 2 | head -n 1)
+  queue! %(ls -Art "/root/fhemig-digepe/releases" | sort | tail -n 2 | head -n 1 | xargs -I active ln -nfs "/root/fhemig-digepe/releases/active" "/root/fhemig-digepe/current")
 
   # Remove latest release folder (active release)
   queue %(echo -n "-----> Deleting active release: ")
-  queue %(ls "#{deploy_to}/releases" -Art | sort | tail -n 1)
-  queue! %(ls "#{deploy_to}/releases" -Art | sort | tail -n 1 | xargs -I active rm -rf "#{deploy_to}/releases/active")
+  queue %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 1)
+  queue! %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 1 | xargs -I active rm -rf "/root/fhemig-digepe/releases/active")
 
   queue %(echo -n "-----> Creating new restart.txt: ")
-  queue "touch #{deploy_to}/shared/tmp/restart.txt"
+  queue "touch /root/fhemig-digepe/shared/tmp/restart.txt"
 end
 
 # Maintenance
@@ -127,13 +127,13 @@ end
 desc 'TurnOff'
 task 'system:turnoff': :remote_environment do
   queue %(echo -n "-----> Turn Off System: ")
-  queue! %(cd "#{deploy_to}/current")
+  queue! %(cd "/root/fhemig-digepe/current")
   queue "RAILS_ENV=#{rails_env} bundle exec rake maintenance:start"
 end
 
 desc 'TurnOn'
 task 'system:turnon': :remote_environment do
   queue %(echo -n "-----> Turn Off System: ")
-  queue! %(cd "#{deploy_to}/current")
+  queue! %(cd "/root/fhemig-digepe/current")
   queue "RAILS_ENV=#{rails_env} bundle exec rake maintenance:end"
 end
