@@ -11,7 +11,7 @@ require 'mina/rvm'
 # Repository project
 set :application_name, 'fhemig-digepe'
 set :domain, '45.178.182.180'
-#set :deploy_to, '/root/fhemig-digepe'
+#set :deploy_to, '/home/production/fhemig-digepe'
 set :repository, 'git@github.com:luizapitangueira/fhemig-digepe.git'
 set :branch, 'main'
 set :user, 'root'
@@ -24,30 +24,30 @@ task :remote_environment do
 end
 
 task setup: :remote_environment do
-  command %(mkdir -p "/root/fhemig-digepe/shared/log")
-  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/log")
+  command %(mkdir -p "/home/production/fhemig-digepe/shared/log")
+  command %(chmod g+rx,u+rwx "/home/production/fhemig-digepe/shared/log")
 
-  command %(mkdir -p "/root/fhemig-digepe/storage")
-  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/storage")
+  command %(mkdir -p "/home/production/fhemig-digepe/storage")
+  command %(chmod g+rx,u+rwx "/home/production/fhemig-digepe/storage")
 
-  command %(touch "/root/fhemig-digepe/storage/index.html")
+  command %(touch "/home/production/fhemig-digepe/storage/index.html")
 
-  command %(mkdir -p "/root/fhemig-digepe/shared/config")
-  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/config")
+  command %(mkdir -p "/home/production/fhemig-digepe/shared/config")
+  command %(chmod g+rx,u+rwx "/home/production/fhemig-digepe/shared/config")
 
-  command %(mkdir -p "/root/fhemig-digepe/shared/pids")
-  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/pids")
+  command %(mkdir -p "/home/production/fhemig-digepe/shared/pids")
+  command %(chmod g+rx,u+rwx "/home/production/fhemig-digepe/shared/pids")
 
-  command %(mkdir -p "/root/fhemig-digepe/shared/tmp")
-  command %(chmod g+rx,u+rwx "/root/fhemig-digepe/shared/tmp")
+  command %(mkdir -p "/home/production/fhemig-digepe/shared/tmp")
+  command %(chmod g+rx,u+rwx "/home/production/fhemig-digepe/shared/tmp")
 
-  command %(touch "/root/fhemig-digepe/shared/config/database.yml")
+  command %(touch "/home/production/fhemig-digepe/shared/config/database.yml")
   command  %(echo "-----> Be sure to edit 'shared/config/database.yml'.")
 
-  command %(touch "/root/fhemig-digepe/shared/config/application.yml")
+  command %(touch "/home/production/fhemig-digepe/shared/config/application.yml")
   command  %(echo "-----> Be sure to edit 'shared/config/application.yml'.")
 
-  command %(touch "/root/fhemig-digepe/shared/config/secrets.yml")
+  command %(touch "/home/production/fhemig-digepe/shared/config/secrets.yml")
   command  %(echo "-----> Be sure to edit 'shared/config/secrets.yml'.")
 end
 
@@ -57,13 +57,13 @@ task deploy: :remote_environment do
 
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
-   # invoke :'bundle:install'
-   # invoke :'rails:db_migrate'
+    invoke :'bundle:install'
+    invoke :'rails:db_migrate'
     invoke :'deploy:cleanup'  
 
     on :launch do
       command %(echo -n '-----> Creating new restart.txt: ')
-      command "touch /root/fhemig-digepe/shared/tmp/restart.txt"
+      command "touch /home/production/fhemig-digepe/shared/tmp/restart.txt"
     end
   end
 end
@@ -73,7 +73,7 @@ task :production do
   set :rails_env, 'production'
   set :user, 'root'
   set :domain, '45.178.182.180'
-  set :deploy_to, '/root/fhemig-digepe'
+  set :deploy_to, '/home/production/fhemig-digepe'
   set :branch, 'main'
 end
 
@@ -95,7 +95,7 @@ set :shared_paths, ['public/uploads', 'config/database.yml', 'log', 'tmp', 'conf
 desc 'Show logs rails.'
 task 'logs:rails': :remote_environment do
   command 'echo "Contents of the log file are as follows:"'
-  command "tail -f /root/fhemig-digepe/shared/log/production.log"
+  command "tail -f /home/production/fhemig-digepe/shared/log/production.log"
 end
 
 desc 'Show logs Nginx.'
@@ -111,16 +111,16 @@ task rollback: :remote_environment do
 
   # Delete existing sym link and create a new symlink pointing to the previous release
   command %(echo -n "-----> Creating new symlink from the previous release: ")
-  command %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 2 | head -n 1)
-  command %(ls -Art "/root/fhemig-digepe/releases" | sort | tail -n 2 | head -n 1 | xargs -I active ln -nfs "/root/fhemig-digepe/releases/active" "/root/fhemig-digepe/current")
+  command %(ls "/home/production/fhemig-digepe/releases" -Art | sort | tail -n 2 | head -n 1)
+  command %(ls -Art "/home/production/fhemig-digepe/releases" | sort | tail -n 2 | head -n 1 | xargs -I active ln -nfs "/home/production/fhemig-digepe/releases/active" "/home/production/fhemig-digepe/current")
 
   # Remove latest release folder (active release)
   command %(echo -n "-----> Deleting active release: ")
-  command %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 1)
-  command %(ls "/root/fhemig-digepe/releases" -Art | sort | tail -n 1 | xargs -I active rm -rf "/root/fhemig-digepe/releases/active")
+  command %(ls "/home/production/fhemig-digepe/releases" -Art | sort | tail -n 1)
+  command %(ls "/home/production/fhemig-digepe/releases" -Art | sort | tail -n 1 | xargs -I active rm -rf "/home/production/fhemig-digepe/releases/active")
 
   command %(echo -n "-----> Creating new restart.txt: ")
-  command "touch /root/fhemig-digepe/shared/tmp/restart.txt"
+  command "touch /home/production/fhemig-digepe/shared/tmp/restart.txt"
 end
 
 # Maintenance
@@ -128,13 +128,13 @@ end
 desc 'TurnOff'
 task 'system:turnoff': :remote_environment do
   command %(echo -n "-----> Turn Off System: ")
-  command %(cd "/root/fhemig-digepe/current")
+  command %(cd "/home/production/fhemig-digepe/current")
   command "RAILS_ENV=#{rails_env} bundle exec rake maintenance:start"
 end
 
 desc 'TurnOn'
 task 'system:turnon': :remote_environment do
   command %(echo -n "-----> Turn Off System: ")
-  command %(cd "/root/fhemig-digepe/current")
+  command %(cd "/home/production/fhemig-digepe/current")
   command "RAILS_ENV=#{rails_env} bundle exec rake maintenance:end"
 end
