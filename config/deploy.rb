@@ -14,7 +14,7 @@ set :domain, '45.178.182.180'
 #set :deploy_to, '/home/production/fhemig-digepe'
 set :repository, 'git@github.com:luizapitangueira/fhemig-digepe.git'
 set :branch, 'main'
-set :user, 'root'
+set :user, 'production'
 set :port, '22'
 set :forward_agent, true
 set :rails_env, 'production'
@@ -71,7 +71,7 @@ end
 # Server Production
 task :production do
   set :rails_env, 'production'
-  set :user, 'root'
+  set :user, 'production'
   set :domain, '45.178.182.180'
   set :deploy_to, '/home/production/fhemig-digepe'
   set :branch, 'main'
