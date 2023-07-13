@@ -10,11 +10,11 @@ require 'mina/rvm'
 
 # Repository project
 set :application_name, 'fhemig-digepe'
-set :domain, '10.49.10.12'
-set :deploy_to, '/home/cogi/fhemig-digepe'
+set :domain, '45.178.182.180'
+set :deploy_to, '/home/fhemig-digepe'
 set :repository, 'git@github.com:luizapitangueira/fhemig-digepe.git'
 set :branch, 'main'
-set :user, 'cogi'
+set :user, 'root'
 set :port, '22'
 set :forward_agent, true
 set :rails_env, 'production'
@@ -70,9 +70,9 @@ end
 # Server Production
 task :production do
   set :rails_env, 'production'
-  set :user, 'cogi'
-  set :domain, '10.49.10.12'
-  set :deploy_to, '/home/cogi/fhemig-digepe'
+  set :user, 'root'
+  set :domain, '45.178.182.180'
+  set :deploy_to, '/home/fhemig-digepe'
   set :branch, 'main'
 end
 
