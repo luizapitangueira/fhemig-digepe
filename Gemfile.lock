@@ -324,7 +324,7 @@ DEPENDENCIES
   selenium-webdriver (>= 4.0.0.rc1)
   spring
   tzinfo-data
-  uglifier
+  uglifier (~> 4.2)
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
