@@ -51,6 +51,8 @@ gem 'rails_admin', '~> 3.1', git: 'https://github.com/sferik/rails_admin.git'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+gem 'uglifier'
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
