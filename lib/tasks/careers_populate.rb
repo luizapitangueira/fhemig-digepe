@@ -3,7 +3,7 @@ class CareersPopulate
 
   class << self
     def populate!
-      seed_file_path = 'db/seeds/csv/careers.csv'
+      seed_file_path = 'lib/tasks/csv/careers.csv'
       # Creating careers if it not exist
       CSV.foreach(seed_file_path, encoding:'utf-8', col_sep: ';', headers: :first_row) do |row|
         Career.find_or_create_by(name: row[0], 
