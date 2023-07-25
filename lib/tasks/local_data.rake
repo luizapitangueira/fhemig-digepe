@@ -2,7 +2,7 @@ require Rails.root.join('lib/tasks/careers_populate.rb')
 require Rails.root.join('lib/tasks/hospitals_populate.rb')
 require Rails.root.join('lib/tasks/employees_jobs_populate.rb')
 
-namespace cadastro: do
+namespace :cadastro do
 	task local: :environment do
 		print "Criando Usuários "
 		User.find_or_create_by(email: 'luiza.pitangueira@fhemig.mg.gov.br') do |u|
