@@ -1,6 +1,6 @@
 require Rails.root.join('lib/tasks/careers_populate.rb')
 require Rails.root.join('lib/tasks/hospitals_populate.rb')
-require Rails.root.join('lib/tasks/employees_jobs_populate.rb')
+require Rails.root.join('lib/tasks/employees_populate.rb')
 
 namespace cadastro: do
 	task local: :environment do
