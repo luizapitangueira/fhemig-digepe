@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: fhemig_contratos_production
-  username: fhemig_contratos
+  username: postgres
   password: <%= ENV['FHEMIG_CONTRATOS_DATABASE_PASSWORD'] %>
