@@ -10,10 +10,10 @@ class EmployeesPopulate
           masp: row[0],
           admission: row[1], 
           name: row[2],
-          type_relationship: row[4]
-          career: row[5], 
+          type_relationship: row[4],
+          career: row[5]
           )
-      end                    
+      end
     end
   end
 end
