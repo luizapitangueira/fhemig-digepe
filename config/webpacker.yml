@@ -47,6 +47,11 @@ default: &default
     - .jpeg
     - .jpg
 
+  RailsAdmin:
+    source_path: app/javascript
+    source_entry_path: packs
+    public_output_path: packs
+
 development:
   <<: *default
   compile: true
@@ -90,3 +95,4 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+

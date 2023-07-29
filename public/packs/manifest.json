@@ -1,21 +1,23 @@
 {
-  "application.js": "/packs/js/application-e8a811cc817655aa7138.js",
-  "application.js.map": "/packs/js/application-e8a811cc817655aa7138.js.map",
+  "actioncable.js": "/packs/js/actioncable-01c48ccbb20731cc99c1.chunk.js",
+  "actioncable.js.map": "/packs/js/actioncable-01c48ccbb20731cc99c1.chunk.js.map",
+  "application.js": "/packs/js/application-c52ebebe748b3d65f466.js",
+  "application.js.map": "/packs/js/application-c52ebebe748b3d65f466.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-e8a811cc817655aa7138.js"
+        "/packs/js/application-c52ebebe748b3d65f466.js"
       ],
       "js.map": [
-        "/packs/js/application-e8a811cc817655aa7138.js.map"
+        "/packs/js/application-c52ebebe748b3d65f466.js.map"
       ]
     },
     "rails_admin": {
       "js": [
-        "/packs/js/rails_admin-103afb1c66ce04e64f48.js"
+        "/packs/js/rails_admin-b57fac64609d364b4e22.js"
       ],
       "js.map": [
-        "/packs/js/rails_admin-103afb1c66ce04e64f48.js.map"
+        "/packs/js/rails_admin-b57fac64609d364b4e22.js.map"
       ]
     }
   },
@@ -24,8 +26,6 @@
   "media/webfonts/fa-solid-900.ttf": "/packs/media/webfonts/fa-solid-900-be9ee23c.ttf",
   "media/webfonts/fa-solid-900.woff": "/packs/media/webfonts/fa-solid-900-eeccf4f6.woff",
   "media/webfonts/fa-solid-900.woff2": "/packs/media/webfonts/fa-solid-900-1551f4f6.woff2",
-  "rails_admin.js": "/packs/js/rails_admin-103afb1c66ce04e64f48.js",
-  "rails_admin.js.map": "/packs/js/rails_admin-103afb1c66ce04e64f48.js.map",
-  "vendors~actioncable.js": "/packs/js/vendors~actioncable-7a18723a7d6422f7448f.chunk.js",
-  "vendors~actioncable.js.map": "/packs/js/vendors~actioncable-7a18723a7d6422f7448f.chunk.js.map"
+  "rails_admin.js": "/packs/js/rails_admin-b57fac64609d364b4e22.js",
+  "rails_admin.js.map": "/packs/js/rails_admin-b57fac64609d364b4e22.js.map"
 }
