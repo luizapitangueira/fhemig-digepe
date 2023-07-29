@@ -27,7 +27,7 @@ Rails.application.configure do
   # config.require_master_key = true
 
   # Compress JavaScripts and CSS.
-  # config.assets.js_compressor = Uglifier.new(:harmony => true)
+  config.assets.js_compressor = :webpack
   # Compress CSS using a preprocessor.
   config.assets.css_compressor = :sass
 

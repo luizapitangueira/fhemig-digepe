@@ -1,23 +1,30 @@
 {
-  "actioncable.js": "/packs/js/actioncable-01c48ccbb20731cc99c1.chunk.js",
-  "actioncable.js.map": "/packs/js/actioncable-01c48ccbb20731cc99c1.chunk.js.map",
-  "application.js": "/packs/js/application-c52ebebe748b3d65f466.js",
-  "application.js.map": "/packs/js/application-c52ebebe748b3d65f466.js.map",
+  "actioncable.js": "/packs/js/actioncable-b9354a4ae7f8e708c8e9.chunk.js",
+  "actioncable.js.map": "/packs/js/actioncable-b9354a4ae7f8e708c8e9.chunk.js.map",
+  "application.css": "/packs/css/application-81df2918.css",
+  "application.js": "/packs/js/application-180493102a5d07115bb5.js",
+  "application.js.map": "/packs/js/application-180493102a5d07115bb5.js.map",
   "entrypoints": {
     "application": {
+      "css": [
+        "/packs/css/application-81df2918.css"
+      ],
       "js": [
-        "/packs/js/application-c52ebebe748b3d65f466.js"
+        "/packs/js/application-180493102a5d07115bb5.js"
       ],
       "js.map": [
-        "/packs/js/application-c52ebebe748b3d65f466.js.map"
+        "/packs/js/application-180493102a5d07115bb5.js.map"
       ]
     },
     "rails_admin": {
+      "css": [
+        "/packs/css/rails_admin-81df2918.css"
+      ],
       "js": [
-        "/packs/js/rails_admin-b57fac64609d364b4e22.js"
+        "/packs/js/rails_admin-1079a738f47c84a2b209.js"
       ],
       "js.map": [
-        "/packs/js/rails_admin-b57fac64609d364b4e22.js.map"
+        "/packs/js/rails_admin-1079a738f47c84a2b209.js.map"
       ]
     }
   },
@@ -26,6 +33,7 @@
   "media/webfonts/fa-solid-900.ttf": "/packs/media/webfonts/fa-solid-900-be9ee23c.ttf",
   "media/webfonts/fa-solid-900.woff": "/packs/media/webfonts/fa-solid-900-eeccf4f6.woff",
   "media/webfonts/fa-solid-900.woff2": "/packs/media/webfonts/fa-solid-900-1551f4f6.woff2",
-  "rails_admin.js": "/packs/js/rails_admin-b57fac64609d364b4e22.js",
-  "rails_admin.js.map": "/packs/js/rails_admin-b57fac64609d364b4e22.js.map"
+  "rails_admin.css": "/packs/css/rails_admin-81df2918.css",
+  "rails_admin.js": "/packs/js/rails_admin-1079a738f47c84a2b209.js",
+  "rails_admin.js.map": "/packs/js/rails_admin-1079a738f47c84a2b209.js.map"
 }
