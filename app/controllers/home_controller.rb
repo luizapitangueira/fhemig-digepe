@@ -32,7 +32,7 @@ class HomeController < ApplicationController
     @count_contracts_due_in_90_days = ContractService.count_contracts_due_in_90_days
     @count_start_date = JobService.count_start_date
 
-    @data_contracts_due_in_90_days = ContractService.data_contracts_due_in_90_days
+    @data_contracts_due_in_90_days = contracts_due_in_90_days
     
   end
 
@@ -40,4 +40,13 @@ class HomeController < ApplicationController
     
   end
 
+  def expiringcontracts
+    p @expiringcontracts = contracts_due_in_90_days
+  end
+
+  def contracts_due_in_90_days
+    ContractService.data_contracts_due_in_90_days
+  end
+
 end
+

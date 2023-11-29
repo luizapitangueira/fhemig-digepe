@@ -17,7 +17,11 @@ class Job < ApplicationRecord
 
 	  show do
 	    field  :id
-	    field  :career
+	    field  :career do
+			formatted_value do
+	  	  		bindings[:object].display_career
+	  	  	end
+		end
 	    field  :status
 	    field  :creation_type
 	    field  :job
@@ -42,7 +46,11 @@ class Job < ApplicationRecord
 	    sort_by :id
 
 	    field  :id
-	    field  :career
+	    field  :career do
+			formatted_value do
+	  	  		bindings[:object].display_career
+	  	  	end
+		end
 	    field  :status
 	    field  :creation_type
 	    field  :workload
@@ -50,7 +58,11 @@ class Job < ApplicationRecord
 	  end
 
 	  edit do
-		field  :career
+		field  :career do
+			formatted_value do
+	  	  		bindings[:object].display_career
+	  	  	end
+		end
 		field  :status
 		field  :creation_type
 		field  :job
@@ -72,7 +84,11 @@ class Job < ApplicationRecord
 	  end
 
 	  create do
-		field  :career
+		field  :career do
+			formatted_value do
+	  	  		bindings[:object].display_career
+	  	  	end
+		end
 		field  :status
 		field  :creation_type
 		field  :job
@@ -101,6 +117,10 @@ class Job < ApplicationRecord
 
 	def display_start_date
 		start_date.present? ? start_date.strftime('%d/%m/%Y') : '-'
+	end
+
+	def display_career
+		"#{career.name} #{career.level}" 
 	end
 
 end

@@ -88,8 +88,8 @@ pt-BR:
         one: "Pessoa"
         other: "Pessoas"
       hospital:
-        one: "Hospital"
-        other: "Hospitais"
+        one: "Unidade"
+        other: "Unidades"
       job:
         one: "Vaga de Contrato Administrativo"
         other: "Vagas de Contrato Administrativo"
@@ -119,12 +119,12 @@ pt-BR:
         employee: "Contratado"
         estimate_finish_date: "Data Fim Prevista"
         finish_date: "Data Fim Real"
-        hospital: "Hospital"
+        hospital: "Unidade"
         job: "Vaga"
         start_date: "Data Início"    
       contract_effective:
         employee: "Efetivo"
-        hospital: "Hospital"
+        hospital: "Unidade"
         if_office: "Ocupa cargo comissionado?"
         job_effective: "Vaga"
         setor: "Setor"

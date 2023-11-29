@@ -12,7 +12,7 @@ class JobService
 
 		def table_careers_categorys
 			result = Job.joins(:career)
-            .group('(careers.category)')
+            .group('(careers.abbreviation)')
             .count(:id)
             .map { |k, count| { 'name' => k.split(',')[0].gsub('\"',''), 'data' => count} }
             formatted_data = result.map {|item| {name: item['name'], data: item['data']}}

@@ -1,10 +1,13 @@
 <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Ação</th>
-                <th>Propriedades</th>
+                <th>Id do Item</th>
+                <th>Ação</th> 
+                <th>Item</th>
                 <th>Data</th>
+                <th>Usuario</th>
+                <th>TESTE</th>
+                <th>Propriedades</th>
             </tr>
         </thead>
         <tbody>
@@ -12,10 +15,14 @@
             <% @data_ahoy.each do | data | %>
             
                 <tr>
-                    <td><%= data.id %></td>
+                    <td><%= data.properties["item_id"] %></td>
                     <td><%= data.name %></td>
-                    <td><%= data.properties %></td>
+                    <td><%= I18n.t("activerecord.models.#{data.properties["item"]}.one") %></td>
                     <td><%= data.time.strftime("%d/%m/%Y") %></td>
+                    <td><%= I18n.t("activerecord.models.user.#{data.properties["user_id"]}.name") %></td>
+                    <td> Status: <%= data.properties["status"] %>, 
+                        Autorização: <% data.properties["authorization"] %></td>
+                    <td><%= data.properties %></td>
                 </tr>
 
             <% end %>

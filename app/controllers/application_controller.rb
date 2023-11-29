@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
 	end
 
 	def selected_action_and_method  
+		p "************************"
+		p request.path_parameters
 		# Edições de objetos
 		if request.path_parameters[:action] == 'edit' && request.method == 'POST'
 			object = request.path_parameters[:model_name]

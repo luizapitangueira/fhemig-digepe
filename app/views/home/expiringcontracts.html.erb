@@ -1,0 +1,30 @@
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id do Item</th>
+                <th>Ação</th> 
+                <th>Item</th>
+                <th>Propriedades</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% @expiringcontracts.each do | data | %>
+            
+                <tr>
+                    <td><%= data.employee.name %></td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+<%#<ActiveRecord::Relation [#<Contract id: 1901, 
+job_id: 1948, 
+employee_id: 1939, 
+hospital_id: 17, 
+start_date: "2022-11-23", 
+estimate_finish_date: "2023-11-22", 
+finish_date: nil,%>
