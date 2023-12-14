@@ -49,6 +49,7 @@ class Job < ApplicationRecord
 	    field  :career do
 			formatted_value do
 	  	  		bindings[:object].display_career
+
 	  	  	end
 		end
 	    field  :status
@@ -78,7 +79,9 @@ class Job < ApplicationRecord
 	    field  :why_switch
 	    field  :notice
 	    field  :notice_publish_date
-	    field  :workload
+	    field  :workload do
+	    	help "Verifique se a carga horária da vaga é compatível com a carga horária da carreira!" 
+	    end
 	    field  :contracts
 	    field  :authorization
 	  end
@@ -104,7 +107,7 @@ class Job < ApplicationRecord
 	    field  :why_switch
 	    field  :notice
 	    field  :notice_publish_date
-	    field  :workload
+	    field  :workload 
 	    field  :contracts
 	    field  :authorization, :hidden
 	  end

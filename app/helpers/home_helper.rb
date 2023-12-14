@@ -22,5 +22,7 @@ module HomeHelper
 
 	end 
 
-	
+	def retrieve_user_by_id(id)
+		User.find(id) ? User.find(id).name : 'Vazio'
+	end
 end

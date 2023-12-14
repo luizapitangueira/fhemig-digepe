@@ -1,0 +1,109 @@
+@import "bootstrap";
+
+.gradient-custom-2 {
+    background: #60a3bc;
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }   
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+
+.container{
+    margin-top:100px;
+}
+
+.counter-box {
+    display: block;
+    background: #f6f6f6;
+    padding: 40px 20px 37px;
+    text-align: center
+}
+
+.counter-box p {
+    margin: 5px 0 0;
+    padding: 0;
+    color: #909090;
+    font-size: 18px;
+    font-weight: 500
+}
+
+.counter-box i {
+    font-size: 60px;
+    margin: 0 0 15px;
+    color: #d2d2d2
+}
+
+.counter { 
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #666;
+    line-height: 28px
+}
+
+.counter-box.colored {
+      background: #eccc68;
+}
+
+.counter-box.colored p,
+.counter-box.colored i,
+.counter-box.colored .counter {
+    color: #fff
+}
+
+.no-margin{
+    margin-top:0;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.bg-blue {
+    background-color: #60a3bc;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.bg-green {
+    background-color: #88ec68;
+}
+
+.bg-red {
+    background-color: #ec6888;
+}
+
+.alert > svg{
+    margin: 0 5px;    
+}
+
+#expiringcontracts{
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+#expiringcontracts span{
+    width: 100%;
+}

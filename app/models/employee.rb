@@ -47,6 +47,11 @@ class Employee < ApplicationRecord
     	field :admission
     	field :name
     	field :career
+    	field "Categoria Profissional" do 
+    		formatted_value do 
+    			bindings[:object].career.category
+    		end
+    	end
     	field :type_relationship
     	field '', :string do 
 	  		label 'Já Possuiu Restrição?'

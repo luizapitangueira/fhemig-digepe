@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 		# Edições de objetos
 		if request.path_parameters[:action] == 'edit' && request.method == 'POST'
 			object = request.path_parameters[:model_name]
-			ahoy.track " Editando um item", { usuario: current_user.id,
+			ahoy.track " Editando um item", { user_id: current_user.id,
 												item: request.path_parameters[:model_name],
 												item_id: request.parameters[:id],
 												object: request.parameters[object] }

@@ -19,8 +19,8 @@
                     <td><%= data.name %></td>
                     <td><%= I18n.t("activerecord.models.#{data.properties["item"]}.one") %></td>
                     <td><%= data.time.strftime("%d/%m/%Y") %></td>
-                    <td><%= I18n.t("activerecord.models.user.#{data.properties["user_id"]}.name") %></td>
-                    <td> Status: <%= data.properties["status"] %>, 
+                    <td><%= retrieve_user_by_id(data.properties["user_id"]) %></td>
+                    <td> Status: <%= data.properties["object"] && data.properties["object"]["status"] ? data.properties["object"]["status"] : "N/A" %>, 
                         Autorização: <% data.properties["authorization"] %></td>
                     <td><%= data.properties %></td>
                 </tr>
